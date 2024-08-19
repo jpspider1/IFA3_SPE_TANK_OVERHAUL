@@ -1,0 +1,97 @@
+v1.0.1 Soviet update
+------------------------------------------------------------------------------------------------------------------------------------------------------
+SU-85
+- SPE Event Handlers added
+- Given renamed M10 gun SPE M7 76mm L55
+- Nerfed armor to compensate for weird modeling
+	- armor 400 -> 300
+	- armorStructural 100 -> 50
+
+76mm ZIS-3 AT Gun
+- Given renamed M10 gun SPE M7 76mm L55
+- Created ZIS-2 57mm AT Gun by renaming SPE_M1_57mm
+
+T-34-76
+- SPE Event Handlers added
+- Main weapon changed to a renamed SPE M3 L40 gun
+- Flamethrower variant OT-34-76. Hull machinegun replaced with flamethrower. Seat renamed to "Flamethrower's seat".
+
+T-34-85
+- SPE Event Handlers added
+- Main weapon changed to a renamed SPE M7 76mm L55
+
+JS2-43
+- SPE Event Handlers added
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+v1.0.0 Initial release of JPSP IFA SPE Tank Overhaul
+------------------------------------------------------------------------------------------------------------------------------------------------------
+- Overhaul is not meant to work with any other 'Overhaul' or mods that modify the armor values of tanks such as IFA3 Realpanzer or IFA3 Liberation.
+- Overhaul is to avoid issues of IFA3 Realpanzer where it modifies all IFA3 tank ammunition
+- Overhaul is to use as many SPE assets as possible to make everything balanced towards SPE, even if that means just mass renaming shells and guns
+- Release focused on making British tanks comparable to SPE US counterparts. 
+- Buffing Churchill to make it more tanky. 
+	- Emulate the feeling of the helpless of a SPE Sherman vs SPE Tiger I except a SPE Panzer IV G vs buffed Churchill. 
+- Applied SPE compass vehicle UI to tanks that were possible without breaking sight
+- Attempt to transfer SPE tank shotset to Russian guns failed, maybe try again later?
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+General
+- LIB base shells have irLock = 0 allowing AI to shoot at SPE tanks using IFA3 ammo
+- Following tanks have SPE vehicle hud compass applied to them
+	- All Churchills, Cromwell, Sd.Kfz 124 (Wespe), M4A3 75, M3A3 Stuart, M5A1 Stuart, StuG III G
+	- Other vehicles had issues with the SPE Vehicle UI breaking the sight on the IFA3 tanks, not sure why.
+- SPE Event Handlers
+	- Churchill
+	- Tiger 2
+	- Cromwell
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+IFA3 Churchills
+- Churchill Mk VII (Howitzer) renamed to Churchill Mk VIII (Howitzer)
+- All Churchills buffed.
+	- armor 400 -> 1000
+	- armorStructural 100 -> 125
+	- class HitHull armor 0.8 -> 0.9, passThrough 1 -> 0.5
+	- class HitEngine armor 0.6 -> 0.7
+- Churchill main weapon changed to a renamed SPE M3 L40 gun
+- Churchill Mk 4 made by renaming SPE_M1_57mm using unused SPE British shells
+	- Desert variant
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+IFA3 Cromwell
+- Cromwell main weapon changed to a renamed SPE M3 L40 gun
+- Cromwell Mk 1 made by renaming SPE_M1_57mm using unused SPE British shells
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+IFA3 Tiger II Ausf. B
+- SPE Tiger VI Ausf. E engine sounds applied to it
+- Main weapon changed to SPE Nashorn gun Pak 43 88mm gun
+- MGs changed to SPE MG vehicle MG34s used on tanks
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+IFA3 Panzer IV / FlakPanzer IV Wirbelwind
+- SPE Panzer IV engine sounds applied to it
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+IFA3 Sd.Kfz 124 Wespe
+- Has SPE 10.5cm gun applied onto it
+- 'AT' version also made without artillery computer using the SPE AT version of the 10.5cm
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+IFA3 Sherman M4A375
+- Given SPE Sherman sounds
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+IFA3 Sherman Firefly
+- Given SPE M10 gun
+- Nerfed armor to compensate for weird modeling
+	- armor 425 -> 300
+	- armorStructural 100 -> 50
+	- class HitHull 
+		explosionShielding 0.2 -> 0.35
+		passThrough 1 -> 10
+	- class HitEngine
+		armor 0.6 -> 0.4
+		explosionShielding 0.2 -> 0.4
+		passThrough 0 -> 1

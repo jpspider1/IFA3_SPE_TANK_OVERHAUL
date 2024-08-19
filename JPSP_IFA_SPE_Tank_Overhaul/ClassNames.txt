@@ -1,0 +1,56 @@
+https://community.bistudio.com/wiki/Spearhead_1944_CfgWeapons_Vehicle_Weapons
+
+SPE_88x822mm_KWK43_APCR
+
+SPE_120x_PzGr40_APCR
+
+SPE_PzGr40_APCR
+caliber = 0.1;
+deflecting = 34;
+hit = 260;
+
+SPE_caliber = 30;
+SPE_initSpeed = 1130;
+SPE_isBlunt = 0;
+SPE_kPenetration = 0;
+SPE_mass = 7.3;
+SPE_massEM = 0;
+SPE_massPR = 6.58;
+SPE_quality = 4;
+SPE_type = "AP";
+submunitionAmmo = "SPE_PzGr40_APCR_penetrator";
+
+SPE_PzGr40_APCR_penetrator
+caliber = "(309/((15*1130)/1000))";
+deflecting = 34;
+hit = 260;
+
+SPE_88x822mm_KWK43_AP
+
+SPE_PzGr43_AP
+caliber = 0.1;
+deflecting = 29;
+hit = 240;
+
+SPE_caliber = 88;
+SPE_initSpeed = 1000;
+SPE_isBlunt = 0;
+SPE_kPenetration = 0;
+SPE_mass = 10.2;
+SPE_massEM = 0.3;
+SPE_massPR = 6.8;
+SPE_quality = 14;
+SPE_tracer_Type = "SPE_GER_Shell_Tracer";
+SPE_type = "AP";
+submunitionAmmo = "SPE_PzGr43_AP_penetrator";
+submunitionDirectionType = "SubmunitionModelDirection";
+
+SPE_PzGr43_AP_penetrator
+caliber = "(235/((15*1000)/1000))";
+deflecting = 29;
+hit = 240;
+
+SPE_105mm_LeFH_PzGrRot_AP
+caliber = "(73/((15*470)/1000))";
+deflecting = 29;
+hit = 240;
