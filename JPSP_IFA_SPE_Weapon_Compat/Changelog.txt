@@ -1,0 +1,29 @@
+v1.0 Initial release of JPSP NF SPE Weapon Compat
+------------------------------------------------------------------------------------------------------------------------------------------------------
+- Hand held AT weapon update
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+PIAT Ammo
+- Given SPE values and able to penetrate SPE tanks
+- Given SPE explosion sounds
+
+PWM
+- hit 400
+- indirectHitRange 1.6
+- indirectHit 145
+- submunition
+- 150mm of penetration
+
+RPG6
+- hit 400
+- indirectHitRange 1.6
+- indirectHit 145
+- submunition
+- 100mm of penetration
+
+No 82 Gammon Bomb
+- hit 400
+- indirectHitRange 1.6
+- indirectHit 145
+- submunition
+- 50mm of penetration
