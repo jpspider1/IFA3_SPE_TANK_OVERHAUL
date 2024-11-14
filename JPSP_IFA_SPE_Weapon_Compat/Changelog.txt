@@ -27,3 +27,7 @@ No 82 Gammon Bomb
 - indirectHit 145
 - submunition
 - 50mm of penetration
+
+No68 Anti-Tank Rifle Grenade
+- Created following design of the SPE M9A1 HEAT rifle grenade for Springfield rifle
+- 52mm of penetration

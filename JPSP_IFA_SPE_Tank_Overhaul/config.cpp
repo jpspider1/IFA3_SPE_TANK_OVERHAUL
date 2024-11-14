@@ -6,9 +6,9 @@ class CfgPatches
 	{
 		units[] = {"JPSP_SdKfz124_AT", "JPSP_Churchill_Mk4", "JPSP_Churchill_Mk4_desert", "JPSP_Cromwell_Mk1", "JPSP_ZIS2", "JPSP_OT34_76"};
         vehicles[] = {};
-		weapons[] = {"JPSP_QOF_75", "JPSP_QOF_6", "JPSP_LIB_D_55", "JPSP_LIB_76mm_ZIS3", "JPSP_LIB_57mm_ZIS2","JPSP_LIB_76mm_F34","JPSP_LIB_85mm_ZiSS53"};
+		weapons[] = {"JPSP_QOF_75", "JPSP_QOF_6", "JPSP_LIB_D_55", "JPSP_LIB_76mm_ZIS3", "JPSP_LIB_57mm_ZIS2","JPSP_LIB_76mm_F34","JPSP_LIB_85mm_ZiSS53","JPSP_D25T"};
 		requiredVersion = 1;
-		requiredAddons[] = {"A3_UI_F","a3_map_altis_scenes","a3_map_vr_scenes","a3_map_stratis_scenes","A3_Map_Stratis","A3_Data_F_Enoch_Loadorder","WW2_Core_c_WW2_Core_c","WW2_Assets_c_Weapons_InfantryWeapons_c","WW2_Assets_c_Vehicles_Weapons_c", "WW2_Assets_c_Vehicles_Tanks_c", "WW2_Assets_c_Vehicles_Tanks_c_PzKpfwVI_B", "WW2_Assets_c_Vehicles_Tanks_c_Churchill", "WW2_Assets_c_Vehicles_Tanks_c_Cromwell", "WW2_SPE_Assets_c_Vehicles_Weapons_c", "WW2_Assets_c_Vehicles_Tanks_c_SdKfz124", "WW2_Assets_c_Vehicles_Tanks_c_SU85", "WW2_Assets_c_Vehicles_Tanks_c_T34_76", "WW2_Assets_c_Vehicles_Tanks_c_T34_85", "WW2_Assets_c_Vehicles_Tanks_c_JS2_43", "WW2_Assets_c_Vehicles_Tanks_c_M4_Sherman", "WW2_Assets_c_Vehicles_StaticWeapons_c_Zis3"};
+		requiredAddons[] = {"A3_UI_F","a3_map_altis_scenes","a3_map_vr_scenes","a3_map_stratis_scenes","A3_Map_Stratis","A3_Data_F_Enoch_Loadorder","WW2_Core_c_WW2_Core_c","WW2_Assets_c_Weapons_InfantryWeapons_c","WW2_Assets_c_Vehicles_Weapons_c", "WW2_Assets_c_Vehicles_Tanks_c", "WW2_Assets_c_Vehicles_Tanks_c_PzKpfwVI_B", "WW2_Assets_c_Vehicles_Tanks_c_Churchill", "WW2_Assets_c_Vehicles_Tanks_c_Cromwell", "WW2_Assets_c_Vehicles_Tanks_c_SdKfz124", "WW2_Assets_c_Vehicles_Tanks_c_SU85", "WW2_Assets_c_Vehicles_Tanks_c_T34_76", "WW2_Assets_c_Vehicles_Tanks_c_T34_85", "WW2_Assets_c_Vehicles_Tanks_c_JS2_43", "WW2_Assets_c_Vehicles_Tanks_c_M4_Sherman", "WW2_Assets_c_Vehicles_StaticWeapons_c_Zis3","WW2_Assets_c_Vehicles_Tanks_c_UniversalCarrier", "WW2_Assets_c_Vehicles_Tanks_c_PzKpfwVI_E","WW2_SPE_Assets_c_Vehicles_Weapons_c"};
 		ammo[] = {"LIB_Shell_base","LIB_ShellAPCR_base","LIB_ShellHE_base"};
 	};
 };
@@ -211,6 +211,37 @@ class CfgVehicles
 	};
     //inherit end
 
+	class LIB_UniversalCarrier_base: LIB_Tank_base
+	{
+		//SPE hud
+		unitInfoType = "RscUnitInfoTank_SPE";
+		class SPE_Veh_HudLayers: SPE_Veh_HudLayers
+        {
+            class Vehicle: Vehicle
+            {
+                SPE_Layers_Array[] = {"hull","engine","wheel_1_1","wheel_2_1"};
+                class SPE_Veh_HudLayers: SPE_Veh_HudLayers
+                {
+                    class hull: hull
+                    {
+						Text = "\WW2\Core_t\IF_Data_t\Extended_HUD\Tanks\UniversalCarrier\hull.paa";
+                    };
+                    class engine: engine
+                    {
+						Text = "\WW2\Core_t\IF_Data_t\Extended_HUD\Tanks\UniversalCarrier\engine.paa";
+                    };
+                    class wheel_1_1: wheel_1_1
+                    {
+						Text = "\WW2\Core_t\IF_Data_t\Extended_HUD\Tanks\UniversalCarrier\ltrack.paa";
+                    };
+                    class wheel_2_1: wheel_2_1
+                    {
+						Text = "\WW2\Core_t\IF_Data_t\Extended_HUD\Tanks\UniversalCarrier\rtrack.paa";
+                    };
+                };
+            };
+        };
+	};
     class LIB_Churchill_base: LIB_Tank_base
     {
         armor = 800; //up from 400
@@ -1398,6 +1429,270 @@ class CfgVehicles
         */
         
     };
+	class LIB_PzKpfwVI_E_base: LIB_Tank_base
+	{
+		//SPE Launcher
+		SPE_grenadeLauncherAngle[] = {"smoke_dir"};
+		SPE_grenadeLauncherPositions[] = {"smoke_source"};
+
+		explosionEffect = "SPE_FuelExplosionBig";
+        //SPE Tiger I sounds
+        soundEngineOffExt[] = {"\WW2\SPE_Assets_s\Vehicles\Tanks_s\PzKpfwIV_G\PzKpfwIV_G_Ext_Stop.wss",1,1,200};
+        soundEngineOffInt[] = {"\WW2\SPE_Assets_s\Vehicles\Tanks_s\PzKpfwIV_G\PzKpfwIV_G_Int_Stop.wss",1,1};
+        soundEngineOnExt[] = {"\WW2\SPE_Assets_s\Vehicles\Tanks_s\PzKpfwIV_G\PzKpfwIV_G_Ext_Start_1.wss",1,1,200};
+        soundEngineOnInt[] = {"\WW2\SPE_Assets_s\Vehicles\Tanks_s\PzKpfwIV_G\PzKpfwIV_G_Int_Start_1.wss",1,1};
+        soundGetIn[] = {"\WW2\SPE_Assets_s\Vehicles\Tanks_s\PzKpfwIV_G\PzKpfwIV_G_GetInOut_1.wss",1.8,1,20};
+        soundGetOut[] = {"\WW2\SPE_Assets_s\Vehicles\Tanks_s\PzKpfwIV_G\PzKpfwIV_G_GetInOut_1.wss",1.8,1,20};
+        class Sounds
+        {
+            soundSetsExt[] = {"SPE_tank_tiger_ext_idle_SoundSet","SPE_tank_tiger_ext_slow_SoundSet","SPE_tank_tiger_ext_mid_SoundSet","SPE_tank_tiger_ext_fast_SoundSet","SPE_tank_tiger_exhaust_ext_idle_SoundSet","SPE_tank_tiger_exhaust_ext_slow_SoundSet","SPE_tank_tiger_exhaust_ext_mid_SoundSet","SPE_tank_tiger_exhaust_ext_fast_SoundSet","SPE_tank_tiger_dist_slow_SoundSet","SPE_tank_tiger_dist_mid_SoundSet","SPE_tank_tiger_dist_high_SoundSet","SPE_tank_tiger_ext_tracks_slow_soundSet","SPE_tank_tiger_ext_tracks_mid_soundSet","SPE_tank_tiger_ext_tracks_fast_soundSet","SPE_tank_tiger_ext_rumble_soundSet","SPE_tank_ext_internalFire_soundSet","SPE_trackSurfaceSound_ext_soft_soundSet","SPE_trackSurfaceSound_ext_hard_soundSet","SPE_trackSurfaceSound_ext_sand_soundSet","SPE_tank_Ext_rain_light_soundSet","SPE_tank_Ext_rain_hard_soundSet","Tank_General_Collision_SoundSet","SPE_tank_tiger_ext_turbine_soundSet"};
+            soundSetsInt[] = {"SPE_tank_tiger_int_idle_SoundSet","SPE_tank_tiger_int_slow_SoundSet","SPE_tank_tiger_int_mid_SoundSet","SPE_tank_tiger_int_fast_SoundSet","SPE_tank_tiger_exhaust_int_idle_SoundSet","SPE_tank_tiger_exhaust_int_slow_SoundSet","SPE_tank_tiger_exhaust_int_mid_SoundSet","SPE_tank_tiger_exhaust_int_fast_SoundSet","SPE_tank_tiger_ext_tracks_slow_soundSet","SPE_tank_tiger_ext_tracks_mid_soundSet","SPE_tank_tiger_ext_tracks_fast_soundSet","SPE_tank_tiger_ext_rumble_soundSet","SPE_tank_int_internalFire_soundSet","SPE_int_breakingStrain_soundSet","SPE_tankRattling_1_soundSet","SPE_int_vehicleStrainTankHeavy_soundSet","SPE_curveStress_1_soundShader","SPE_tank_Int_rain_light_soundSet","SPE_tank_Int_rain_hard_soundSet","Tank_General_Collision_Int_SoundSet","SPE_cscReload_Int_shellEject_genericCannon_SoundSet","SPE_cscReload_Int_movementLoop_genericCannon_SoundSet","SPE_cscReload_Int_breechOpen_genericCannon_SoundSet","SPE_cscReload_Int_shellLoading_genericCannon_SoundSet","SPE_tank_tiger_int_turbine_soundSet"};
+        };
+		class EventHandlers
+		{
+			class SPE_AntiFlip
+			{
+				EpeContact = "_this call SPE_AntiFlip_fnc_epeEH";
+				EpeContactEnd = "_this call SPE_AntiFlip_fnc_epeEH";
+				EpeContactStart = "_this call SPE_AntiFlip_fnc_epeEH";
+				init = "_this call SPE_AntiFlip_fnc_vehicleInit";
+			};
+			class SPE_DestructionEffects_Fix
+			{
+				engine = "_this call SPE_Fnc_engineCheckDamage";
+			};
+			class SPE_sound_tankHitPartInteriorEventhandler
+			{
+				hitPart = "_this call SPE_soundFunction_interiorHit";
+			};
+			class SPE_System_Tanks_Damage
+			{
+				getOut = "_this call SPE_Fnc_System_Tanks_getOutEH";
+				init = "_this call SPE_Fnc_System_Tanks_initEH";
+				killed = "_this call SPE_Fnc_System_Tanks_killed_EH";
+			};
+			class SPE_Tanks
+			{
+				init = "_this call SPE_System_Tanks_EH_Tank_init";
+			};
+			class SPE_VehicleTypeCaching
+			{
+				init = "(_this select 0) setVariable ['SPE_isTank',true];";
+			};
+		};
+
+		class Turrets: Turrets
+		{
+			class MainTurret: MainTurret
+			{
+				//weapons[] = {"LIB_KwK36_L56","LIB_MG34_coax"};
+				//magazines[] = {"LIB_30x_PzGr39_KwK36_AP","LIB_12x_PzGr40_KwK36_APCR","LIB_50x_SprGr_KwK36_HE","LIB_150rnd_MG34","LIB_150rnd_MG34","LIB_150rnd_MG34","LIB_150rnd_MG34","LIB_150rnd_MG34","LIB_150rnd_MG34","LIB_150rnd_MG34","LIB_150rnd_MG34","LIB_150rnd_MG34","LIB_150rnd_MG34","LIB_150rnd_MG34","LIB_150rnd_MG34","LIB_150rnd_MG34","LIB_150rnd_MG34","LIB_150rnd_MG34","LIB_150rnd_MG34"};
+				weapons[] = {"SPE_KwK36_L56","SPE_MG34_coax"};
+				magazines[] = {"SPE_30x_PzGr39_KwK36_AP","SPE_12x_PzGr40_KwK36_APCR","SPE_50x_SprGr_KwK36_HE","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34"};
+				maxHorizontalRotSpeed = "((360/60)/40)";
+				maxVerticalRotSpeed = "(rad (360 / 60))";
+				gunnerAction = "LIB_PzKpfwVI_E_crew_In";
+				gunnerInAction = "LIB_PzKpfwVI_E_crew_In";
+				minElev = -6.5;
+				maxElev = 17;
+				class OpticsIn
+				{
+					class Near
+					{
+						opticsDisplayName = "$STR_OpticsIn_Near_2_5x";
+						useModelOptics = 1;
+						gunnerOpticsModel = "\WW2\Assets_m\Vehicles\Optics_m\IF_Optics.p3d";
+						gunnerOpticsEffect[] = {"TankGunnerOptics2","OpticsBlur1","OpticsCHAbera1"};
+						initAngleX = 0;
+						minAngleX = -30;
+						maxAngleX = 30;
+						initAngleY = 0;
+						minAngleY = -100;
+						maxAngleY = 100;
+						initFov = 0.14;
+						minFov = 0.14;
+						maxFov = 0.14;
+						memoryPointGunnerOptics = "gunnerview";
+						visionMode[] = {"Normal"};
+						opticsFlare = 1;
+						opticsDisablePeripherialVision = 1;
+						cameraDir = "";
+					};
+					class Far: Near
+					{
+						opticsDisplayName = "$STR_OpticsIn_Far_5x";
+						memoryPointGunnerOptics = "gunnerview_1";
+						initFov = 0.0625;
+						minFov = 0.0625;
+						maxFov = 0.0625;
+					};
+				};
+				class ViewOptics: ViewOptics
+				{
+					initFov = 0.14;
+					minFov = 0.14;
+					maxFov = 0.14;
+				};
+				class Turrets: Turrets
+				{
+					class CommanderOptics: CommanderOptics
+					{
+						weapons[] = {"SmokeLauncher"};
+						magazines[] = {"SmokeLauncherMag"};
+						gunnerInAction = "crew_tank01_in";
+						gunnerAction = "commander_mbt3_out";
+						gunnerOpticsModel = "";
+						gunnerForceOptics = 0;
+						gunnerOutOpticsModel = "\WW2\Assets_m\Weapons\Optics_m\IF_Optika_Empty.p3d";
+						gunnerOutOpticsShowCursor = 1;
+						memoryPointGunnerOutOptics = "CommanderViewOut";
+						gunnerType = "LIB_GER_tank_unterofficer";
+						lodTurnedIn = 1000;
+						lodTurnedOut = -1;
+						class ViewOptics: ViewOptics
+						{
+							initFov = 0.35;
+							minFov = 0.35;
+							maxFov = 0.35;
+						};
+					};
+					class Loader_place: Loader_place
+					{
+						proxyIndex = 3;
+						gunnerInAction = "LIB_PzKpfwVI_E_crew_In";
+						gunnerAction = "LIB_PzKpfwVI_E_loader_Out";
+						gunnerOpticsModel = "\WW2\Assets_m\Vehicles\Optics_m\IF_Tiger_Commander_Optic.p3d";
+						gunnerOpticsEffect[] = {"TankGunnerOptics2","OpticsBlur1","OpticsCHAbera1"};
+					};
+				};
+			};
+			class kurs_MG_turret: MainTurret
+			{
+				body = "kurs_MG_turret";
+				gun = "kurs_MG_gun";
+				animationSourceBody = "Turret_2";
+				animationSourceGun = "Gun_2";
+				animationSourceHatch = "hatchMGunner";
+				selectionFireAnim = "zasleh_kursMG";
+				proxyIndex = 2;
+				primaryGunner = 0;
+				lockWhenDriverOut = 0;
+				forceHideGunner = 0;
+				gunnerInAction = "LIB_PzKpfwVI_E_crew_In";
+				gunnerAction = "LIB_PzKpfwVI_E_mgunner_Out";
+				memoryPointsGetInGunner = "pos_mgunner";
+				memoryPointsGetInGunnerDir = "pos_mgunner_dir";
+				gunnerName = "$STR_LIB_tank_machinegunner";
+				maxHorizontalRotSpeed = 1.5;
+				maxVerticalRotSpeed = 1.5;
+				outGunnerMayFire = 1;
+				inGunnerMayFire = 1;
+				minElev = -10;
+				maxElev = 10;
+				minTurn = -12;
+				maxTurn = 12;
+				weapons[] = {"SPE_MG34_coax"};
+				magazines[] = {"SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34"};
+				gunBeg = "kursMG_beg";
+				gunEnd = "kursMG_end";
+				memoryPointGun = "kulas_kursMG";
+				memoryPointGunnerOptics = "gunnerview_kursMG";
+				gunnerOpticsModel = "\WW2\Assets_m\Vehicles\Optics_m\IF_Optika_MG.p3d";
+				commanding = 2;
+				class HitPoints{};
+				LIB_WP_TurretProtected = 1;
+				class OpticsIn
+				{
+					class Main
+					{
+						useModelOptics = 1;
+						gunnerOpticsModel = "\WW2\Assets_m\Vehicles\Optics_m\IF_Optika_MG.p3d";
+						gunnerOpticsEffect[] = {"TankGunnerOptics2","OpticsBlur1","OpticsCHAbera1"};
+						initAngleX = 0;
+						minAngleX = -100;
+						maxAngleX = 100;
+						initAngleY = 0;
+						minAngleY = -360;
+						maxAngleY = 360;
+						initFov = 0.194;
+						minFov = 0.194;
+						maxFov = 0.194;
+						memoryPointGunnerOptics = "gunnerview_kursMG";
+						visionMode[] = {"Normal"};
+						opticsFlare = 1;
+						opticsDisablePeripherialVision = 1;
+						cameraDir = "";
+					};
+				};
+				class Turrets{};
+				class ViewOptics
+				{
+					initAngleX = 0;
+					minAngleX = -100;
+					maxAngleX = 100;
+					initAngleY = 0;
+					minAngleY = -360;
+					maxAngleY = 360;
+					initFov = 0.194;
+					minFov = 0.194;
+					maxFov = 0.194;
+				};
+				class ViewGunner
+				{
+					initAngleX = 5;
+					minAngleX = -65;
+					maxAngleX = 85;
+					initAngleY = 0;
+					minAngleY = -150;
+					maxAngleY = 150;
+					initFov = 0.7;
+					minFov = 0.25;
+					maxFov = 1.1;
+				};
+			};
+		};
+		class AnimationSources: Animationsources
+		{
+			class recoil_source
+			{
+				source = "reload";
+				weapon = "SPE_KwK36_L56";
+			};
+			class muzzle_rot_cannon
+			{
+				source = "ammorandom";
+				weapon = "SPE_KwK36_L56";
+			};
+			class muzzle_rot_coax
+			{
+				source = "ammorandom";
+				weapon = "SPE_MG34_coax";
+			};
+			class muzzle_hide_coax
+			{
+				source = "reload";
+				weapon = "SPE_MG34_coax";
+			};
+			class reticle_v_source
+			{
+				source = "user";
+				animPeriod = 1;
+				initPhase = 0.1;
+			};
+			class reticle_r_source
+			{
+				source = "user";
+				animPeriod = 1;
+				initPhase = 0.5;
+			};
+			class ACE_Turret
+			{
+				source = "user";
+				animPeriod = 1e-05;
+				initPhase = 0;
+			};
+		};
+	};
     class LIB_SdKfz124_base: LIB_Tank_base
     {
         class Turrets: Turrets
@@ -2888,7 +3183,179 @@ class CfgVehicles
 				init = "(_this select 0) setVariable ['SPE_isTank',true];";
 			};
 		};
-		/*
+		class Turrets: Turrets
+		{
+			class MainTurret: MainTurret
+			{
+				weapons[] = {"JPSP_D25T","LIB_DT29"};
+				//magazines[] = {"LIB_63rnd_DT"};
+				magazines[] = {"SPE_12x_M101_M67_HEAT","SPE_16x_M101_M1_HE","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT"};
+				gunnerOpticsModel = "\WW2\Assets_m\Vehicles\Optics_m\IF_Optics.p3d";
+				maxHorizontalRotSpeed = "((360/40)/40)";
+				maxVerticalRotSpeed = 0.14;
+				gunnerAction = "T72_GunnerOut";
+				gunnerInAction = "T72_Gunner";
+				gunnerType = "LIB_SOV_tank_overall_sergeant";
+				minElev = -3;
+				maxElev = 20;
+				//JPSP hitpoint modification
+				class HitPoints: Hitpoints
+				{
+					class HitGun: HitGun
+					{
+						armor = 1; //0.8
+						explosionShielding = 0.2;
+						material = -1;
+						minimalHit = 0.15;
+						name = "main_gun_hit";
+						passThrough = 0;
+						radius = 0.25;
+						visual = "dmg_gun";
+					};
+					class HitTurret: HitTurret
+					{
+						armor = 1;
+						explosionShielding = 0.2;
+						material = -1;
+						minimalHit = 0.15;
+						name = "main_turret_hit";
+						passThrough = 0.5;
+						radius = 0.25;
+						visual = "dmg_turret";
+					};
+				};
+
+				class ViewOptics: ViewOptics
+				{
+					initFov = 0.0625;
+					minFov = 0.0625;
+					maxFov = 0.0625;
+				};
+				class Turrets: Turrets
+				{
+					class CommanderOptics: CommanderOptics
+					{
+						stabilizedInAxes = 0;
+						gunnerInAction = "crew_tank01_in";
+						gunnerAction = "commander_mbt3_out";
+						gunnerOpticsModel = "";
+						gunnerForceOptics = 0;
+						lodTurnedIn = 1000;
+						lodTurnedOut = -1;
+						gunnerType = "LIB_SOV_tank_overall_lieutenant";
+						class ViewOptics: ViewOptics
+						{
+							minAngleX = -100;
+							maxAngleX = 100;
+							minAngleY = 155;
+							maxAngleY = 205;
+							initFov = 0.194;
+							minFov = 0.194;
+							maxFov = 0.194;
+						};
+					};
+					class Loader_place: Loader_place
+					{
+						proxyIndex = 2;
+						gunnerInAction = "ZSU_Commander";
+						gunnerAction = "lib_JS2_commander_Out";
+						gunnerOpticsModel = "\WW2\Assets_m\Vehicles\Optics_m\IF_JS_Commander_Optic.p3d";
+						gunnerType = "LIB_SOV_tank_overall_crew";
+					};
+					class back_MG_turret: NewTurret
+					{
+						weapons[] = {"LIB_DT29_back"};
+						magazines[] = {"LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT"};
+						body = "back_MG_turret";
+						gun = "back_MG_gun";
+						animationSourceBody = "Turret_2";
+						animationSourceGun = "Gun_2";
+						animationSourceHatch = "";
+						selectionFireAnim = "zasleh_back_MG";
+						forceHideGunner = 1;
+						startEngine = 0;
+						stabilizedInAxes = 0;
+						maxHorizontalRotSpeed = 1.5;
+						maxVerticalRotSpeed = 1.5;
+						gunnerInAction = "LIB_t34_85_loader_In";
+						gunnerAction = "lib_JS2_loader_Out";
+						memoryPointsGetInGunner = "pos_loader";
+						memoryPointsGetInGunnerDir = "pos_loader_dir";
+						gunnerGetInAction = "GetInHigh";
+						gunnerGetOutAction = "GetOutHigh";
+						proxyIndex = 3;
+						primaryGunner = 0;
+						commanding = -1;
+						gunnerName = "$STR_LIB_tank_machinegunner";
+						minElev = -25;
+						maxElev = 25;
+						minTurn = 155;
+						maxTurn = 205;
+						gunBeg = "backMG_beg";
+						gunEnd = "backMG_end";
+						memoryPointGun = "kulas_backMG";
+						memoryPointGunnerOptics = "gunnerview_backMG";
+						gunnerOpticsModel = "\WW2\Assets_m\Vehicles\Optics_m\IF_Js_MG_Optic.p3d";
+						gunnerOpticsEffect[] = {"TankGunnerOptics2","OpticsBlur1","OpticsCHAbera1"};
+						gunnerType = "LIB_SOV_tank_overall_crew";
+						class HitPoints{};
+						LIB_WP_TurretProtected = 1;
+						class ViewOptics: ViewOptics
+						{
+							minAngleX = -100;
+							maxAngleX = 100;
+							minAngleY = 155;
+							maxAngleY = 205;
+							initFov = 0.194;
+							minFov = 0.194;
+							maxFov = 0.194;
+						};
+					};
+				};
+			};
+		};
+		class AnimationSources: Animationsources
+		{
+			class recoil_source
+			{
+				source = "reload";
+				weapon = "JPSP_D25T";
+			};
+			class muzzle_rot_cannon
+			{
+				source = "ammorandom";
+				weapon = "JPSP_D25T";
+			};
+			class muzzle_rot_coax
+			{
+				source = "ammorandom";
+				weapon = "LIB_DT29";
+			};
+			class muzzle_hide_coax
+			{
+				source = "reload";
+				weapon = "LIB_DT29";
+			};
+			class reticle_v_source
+			{
+				source = "user";
+				animPeriod = 1;
+				initPhase = 0.1;
+			};
+			class reticle_h_source
+			{
+				source = "user";
+				animPeriod = 1;
+				initPhase = 0.5;
+			};
+			class ACE_Turret
+			{
+				source = "user";
+				animPeriod = 1e-05;
+				initPhase = 0;
+			};
+		};
+				/*
         //SPE hud
 		unitInfoType = "RscUnitInfoTank_SPE";
 		class SPE_Veh_HudLayers: SPE_Veh_HudLayers
@@ -2939,8 +3406,18 @@ class CfgVehicles
 };
 class CfgWeapons
 {
-    class SPE_M3_L40_base;
+	//inherit begin
+	class SPE_M3_L40_base;
     class SPE_M3_L40;
+	class SPE_M1_57mm_Base;
+    class SPE_M1_57mm;
+	class SPE_M4_Howitzer;
+	class SPE_M4_Howitzer_base;
+	class SPE_M4_Howitzer_HEAT_AI;
+	class SPE_M4_Howitzer_SMOKE_AI;
+	// inherit end
+
+	//SPE renamed guns
     class JPSP_QOF_75: SPE_M3_L40
     {
         displayName = "Ordnance QF 75 mm";
@@ -2949,8 +3426,6 @@ class CfgWeapons
             displayName = "Ordnance QF 75 mm";
         };
     };
-    class SPE_M1_57mm_Base;
-    class SPE_M1_57mm;
     class JPSP_QOF_6: SPE_M1_57mm
     {
         displayName = "Ordnance QF 6-pounder";
@@ -3000,5 +3475,37 @@ class CfgWeapons
         {
             displayName = "85mm ZiS-S-53";
         };
+	};
+	class JPSP_D25T: SPE_M4_Howitzer
+	{
+		displayName = "122 mm D-25T";
+		magazineReloadTime = 24; //24
+		reloadTime = 24;
+		magazines[] = {"SPE_M101_M1_HE","SPE_M101_M67_HEAT"};
+		magazineWell[] = {"SPE_105x372mm_M101_HE","SPE_105x372mm_M101_HEAT"};
+        class MODE_PLAYER_ALL: SPE_M4_Howitzer_base
+        {
+            displayName = "122 mm D-25T";
+			magazines[] = {"SPE_M101_M1_HE","SPE_M101_M67_HEAT"};
+			magazineWell[] = {"SPE_105x372mm_M101_HE","SPE_105x372mm_M101_HEAT"};
+			magazineReloadTime = 24;
+			reloadTime = 24;
+        };
+		class MODE_AI_HEAT: SPE_M4_Howitzer_HEAT_AI
+		{
+            displayName = "122 mm D-25T";
+			magazines[] = {"SPE_M101_M67_HEAT"};
+			magazineWell[] = {"SPE_105x372mm_M101_HEAT"};
+			magazineReloadTime = 24;
+			reloadTime = 24;
+		};
+		class MODE_AI_SMOKE: SPE_M4_Howitzer_SMOKE_AI
+		{
+            displayName = "122 mm D-25T";
+			magazines[] = {};
+			magazineWell[] = {};
+			magazineReloadTime = 24;
+			reloadTime = 24;
+		};
 	};
 };
