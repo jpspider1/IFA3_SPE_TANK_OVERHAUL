@@ -20,4 +20,13 @@ class CfgWeapons
 			};
 		};
 	};
+
+	class SPE_M1_76mm_L55;
+	class JPSP_M3_90mm_base: SPE_M1_76mm_L55
+	{
+		displayName = "90 mm M3 L/53";
+		magazineReloadTime = 7;
+		magazines[] = {"SPE_30x_76mm_M1_M62_APCBC","SPE_20x_76mm_M1_HC_M62_APCBC","SPE_30x_76mm_M1_M79_AP","SPE_20x_76mm_M1_HC_M79_AP","SPE_6x_76mm_M1_M93_APCR","SPE_5x_76mm_M1_HC_M93_APCR","SPE_28x_76mm_M1_M42_HE","SPE_15x_76mm_M1_HC_M42_HE","SPE_7x_76mm_M1_M89_SMK","SPE_5x_76mm_M1_HC_M89_SMK","SPE_76mm_M1_M93_APCR","SPE_76mm_M1_M62_APCBC","SPE_76mm_M1_M79_AP","SPE_76mm_M1_M42_HE","SPE_76mm_M1_M89_SMK","SPE_76mm_M1_HC_M93_APCR","SPE_76mm_M1_HC_M62_APCBC","SPE_76mm_M1_HC_M79_AP","SPE_76mm_M1_HC_M42_HE","SPE_76mm_M1_HC_M89_SMK"};
+		magazineWell[] = {"SPE_76x539mm_M1_AP","SPE_76x539mm_M1_APCR","SPE_76x539mm_M1_HE","SPE_76x539mm_M1_SMK"};
+	};
 };

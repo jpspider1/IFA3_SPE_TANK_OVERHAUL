@@ -416,6 +416,79 @@ class CfgVehicles
 			soundSetsInt[] = {"SPE_sdkfz250_int_onLoad_rpm0_soundSet","SPE_sdkfz250_int_onLoad_rpm1_soundSet","SPE_sdkfz250_int_onLoad_rpm2_soundSet","SPE_sdkfz250_int_onLoad_rpm3_soundSet","SPE_sdkfz250_int_onLoad_rpm4_soundSet","SPE_sdkfz250_int_onLoad_rpm5_soundSet","SPE_sdkfz250_int_onLoad_rpm6_soundSet","SPE_sdkfz250_int_onLoad_rpm7_soundSet","SPE_sdkfz250_int_onLoad_rpm8_soundSet","SPE_sdkfz250_int_onLoad_rpm9_soundSet","SPE_sdkfz250_int_onLoad_rpm10_soundSet","SPE_sdkfz250_int_offLoad_rpm0_soundSet","SPE_sdkfz250_int_offLoad_rpm1_soundSet","SPE_sdkfz250_int_offLoad_rpm2_soundSet","SPE_sdkfz250_int_offLoad_rpm3_soundSet","SPE_sdkfz250_int_offLoad_rpm4_soundSet","SPE_sdkfz250_int_offLoad_rpm5_soundSet","SPE_sdkfz250_int_offLoad_rpm6_soundSet","SPE_sdkfz250_int_offLoad_rpm7_soundSet","SPE_sdkfz250_int_offLoad_rpm8_soundSet","SPE_sdkfz250_int_offLoad_rpm9_soundSet","SPE_sdkfz250_int_offLoad_rpm10_soundSet","SPE_sdkfz250_int_acceleration_soundSet","SPE_halftrack_sdkfz250_int_tracks_slow_soundSet","SPE_halftrack_sdkfz250_int_tracks_mid_soundSet","SPE_halftrack_sdkfz250_int_tracks_fast_soundSet","Van_01_Rattling_INT_SoundSet","SPE_truck_int_tires_rock_slow_SoundSet","SPE_truck_int_tires_rock_fast_SoundSet","SPE_truck_int_tires_grass_slow_SoundSet","SPE_truck_int_tires_grass_fast_SoundSet","SPE_truck_int_tires_sand_slow_SoundSet","SPE_truck_int_tires_sand_fast_SoundSet","SPE_truck_int_tires_gravel_slow_SoundSet","SPE_truck_int_tires_gravel_fast_SoundSet","SPE_truck_int_tires_mud_slow_SoundSet","SPE_truck_int_tires_mud_fast_SoundSet","SPE_truck_int_tires_asphalt_slow_SoundSet","SPE_truck_int_tires_asphalt_fast_SoundSet","SPE_truck_int_tires_water_slow_SoundSet","SPE_truck_int_tires_water_fast_SoundSet","Van_01_Tires_Turn_Hard_INT_SoundSet","Van_01_Tires_Turn_Soft_INT_SoundSet","Van_01_Tires_Brake_Hard_INT_SoundSet","SPE_truck_int_tires_brake_soft_soundSet","SPE_tank_int_internalFire_soundSet","SPE_halfTrack_Int_rain_light_soundSet","SPE_halfTrack_Int_rain_hard_soundSet","SPE_halfTrack_int_stress_soundSet","SPE_halfTrack_int_rumble_soundSet","SPE_halfTrack_int_rattling_offroad_low_soundSet","SPE_halfTrack_int_rattling_offroad_high_soundSet","SPE_halfTrackSurfaceSound_int_soft_soundSet","SPE_halfTrackSurfaceSound_int_hard_soundSet","SPE_halfTrackSurfaceSound_int_sand_soundSet"};
 			soundSetsExt[] = {"SPE_sdkfz250_ext_onLoad_rpm0_soundSet","SPE_sdkfz250_ext_onLoad_rpm1_soundSet","SPE_sdkfz250_ext_onLoad_rpm2_soundSet","SPE_sdkfz250_ext_onLoad_rpm3_soundSet","SPE_sdkfz250_ext_onLoad_rpm4_soundSet","SPE_sdkfz250_ext_onLoad_rpm5_soundSet","SPE_sdkfz250_ext_onLoad_rpm6_soundSet","SPE_sdkfz250_ext_onLoad_rpm7_soundSet","SPE_sdkfz250_ext_onLoad_rpm8_soundSet","SPE_sdkfz250_ext_onLoad_rpm9_soundSet","SPE_sdkfz250_ext_onLoad_rpm10_soundSet","SPE_sdkfz250_ext_offLoad_rpm0_soundSet","SPE_sdkfz250_ext_offLoad_rpm1_soundSet","SPE_sdkfz250_ext_offLoad_rpm2_soundSet","SPE_sdkfz250_ext_offLoad_rpm3_soundSet","SPE_sdkfz250_ext_offLoad_rpm4_soundSet","SPE_sdkfz250_ext_offLoad_rpm5_soundSet","SPE_sdkfz250_ext_offLoad_rpm6_soundSet","SPE_sdkfz250_ext_offLoad_rpm7_soundSet","SPE_sdkfz250_ext_offLoad_rpm8_soundSet","SPE_sdkfz250_ext_offLoad_rpm9_soundSet","SPE_sdkfz250_ext_offLoad_rpm10_soundSet","SPE_sdkfz250_ext_acceleration_soundSet","SPE_halftrack_sdkfz250_ext_tracks_slow_soundSet","SPE_halftrack_sdkfz250_ext_tracks_mid_soundSet","SPE_halftrack_sdkfz250_ext_tracks_fast_soundSet","Van_01_Rattling_EXT_SoundSet","Van_01_Stress_EXT_SoundSet","SPE_truck_ext_tires_rock_slow_SoundSet","SPE_truck_ext_tires_rock_fast_SoundSet","SPE_truck_ext_tires_grass_slow_SoundSet","SPE_truck_ext_tires_grass_fast_SoundSet","SPE_truck_ext_tires_sand_slow_SoundSet","SPE_truck_ext_tires_sand_fast_SoundSet","SPE_truck_ext_tires_gravel_slow_SoundSet","SPE_truck_ext_tires_gravel_fast_SoundSet","SPE_truck_ext_tires_mud_slow_SoundSet","SPE_truck_ext_tires_mud_fast_SoundSet","SPE_truck_ext_tires_asphalt_slow_SoundSet","SPE_truck_ext_tires_asphalt_fast_SoundSet","SPE_truck_ext_tires_water_slow_SoundSet","SPE_truck_ext_tires_water_fast_SoundSet","Van_01_Tires_Turn_Hard_EXT_SoundSet","Van_01_Tires_Turn_Soft_EXT_SoundSet","Van_01_Tires_Brake_Hard_EXT_SoundSet","Van_01_Tires_Brake_Soft_EXT_SoundSet","SPE_tank_ext_internalFire_soundSet","SPE_car_Ext_rain_light_soundSet","SPE_car_Ext_rain_hard_soundSet","SPE_halfTrack_ext_rattling_offroad_low_soundSet","SPE_halfTrack_ext_rattling_offroad_high_soundSet","SPE_truck_ext_distantTires_soundSet","SPE_truck_ext_distantTires_wet_soundSet","SPE_truck_ext_tires_wetLayer_soundSet","SPE_trackSurfaceSound_ext_soft_soundSet","SPE_trackSurfaceSound_ext_hard_soundSet","SPE_trackSurfaceSound_ext_sand_soundSet"};
 		};
+
+		class UserActions: UserActions
+		{
+			class hatches_open
+			{
+				displayName = "$STR_LIB_DN_OPEN_HATCHES";
+				position = "zamerny";
+				radius = 1;
+				showWindow = 0;
+				onlyForplayer = 0;
+				condition = "Alive(this) AND ((call ww2_fnc_findPlayer) == driver this) AND this animationPhase ""hatch_rotate"" < 0.5";
+				statement = "this animate [""hatch_rotate"",1]";
+			};
+			class hatches_close: hatches_open
+			{
+				displayName = "$STR_LIB_DN_CLOSE_HATCHES";
+				condition = "Alive(this) AND ((call ww2_fnc_findPlayer) == driver this) AND this animationPhase ""hatch_rotate"" > 0.5";
+				statement = "this animate [""hatch_rotate"",0]";
+			};
+			class hatches_open2
+			{
+				displayName = "$STR_LIB_DN_OPEN_HATCHES";
+				position = "zamerny";
+				radius = 1;
+				showWindow = 0;
+				onlyForplayer = 0;
+				condition = "Alive(this) AND ((this getCargoIndex (call ww2_fnc_findPlayer)) == 9) AND this animationPhase ""hatch2_rotate"" < 0.5";
+				statement = "this animate [""hatch2_rotate"",1]";
+			};
+			class hatches_close2: hatches_open2
+			{
+				displayName = "$STR_LIB_DN_CLOSE_HATCHES";
+				condition = "Alive(this) AND ((this getCargoIndex (call ww2_fnc_findPlayer)) == 9) AND this animationPhase ""hatch2_rotate"" > 0.5";
+				statement = "this animate [""hatch2_rotate"",0]";
+			};
+			class Doors_open
+			{
+				displayName = "$STR_LIB_DN_OPEN_DOORS";
+				position = "door_l_axis";
+				radius = 5;
+				showWindow = 0;
+				onlyForplayer = 0;
+				condition = "Alive(this) AND this animationPhase ""door_1_1_rotate"" < 0.5"; // AND ((call ww2_fnc_findPlayer) in (crew this))
+				statement = "this animatedoor [""door_1_1_rotate"",1]; this animatedoor [""door_2_1_rotate"",1]";
+			};
+			class Doors_close: Doors_open
+			{
+				displayName = "$STR_LIB_DN_CLOSE_DOORS";
+				condition = "Alive(this) AND this animationPhase ""door_1_1_rotate"" > 0.5"; // AND ((call ww2_fnc_findPlayer) in (crew this))
+				statement = "this animatedoor [""door_1_1_rotate"",0]; this animatedoor [""door_2_1_rotate"",0]";
+			};
+			//SPE Towing
+			class Towing
+			{
+				condition = "[this] call SPE_System_Artillery_Towing_Condition_Attach_Wheeled_APCs";
+				displayName = "Hitch to vehicle";
+				displayNameDefault = "<img image='WW2\SPE_Assets_t\Vehicles\Misc_t\Start_Towing.paa' size='3' shadow='false' />";
+				onlyForplayer = 0;
+				position = "zamerny";
+				radius = 6;
+				statement = "[this] call SPE_System_Artillery_Towing_Statement_Attach_Wheeled_APCs;";
+			};
+			class Drop
+			{
+				condition = "[this] call SPE_System_Artillery_Towing_Condition_Drop_Wheeled_APCs";
+				displayName = "Unhitch";
+				displayNameDefault = "<img image='WW2\SPE_Assets_t\Vehicles\Misc_t\Drop_Towing.paa' size='3' shadow='false' />";
+				onlyForplayer = 0;
+				position = "zamerny";
+				radius = 6;
+				statement = "[this] spawn SPE_System_Artillery_Towing_Statement_Drop_Wheeled_APCs;";
+			};
+		};
 	};
     
 };

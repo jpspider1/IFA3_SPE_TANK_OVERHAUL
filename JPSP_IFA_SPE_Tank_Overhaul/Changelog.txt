@@ -1,3 +1,58 @@
+v1.0.5 Wirbelwind update, Churchill Mk IV nerf
+----------
+
+IFA3 Wirbelwind
+- Given SPE Vehicle UI
+- Created a new 4x Flak 38 based on SPE Flak 38
+- Modified Optics to have 3 zoom levels: Zoomed out, slightly zoomed in, SPE 2cm zoomed in sight
+
+JPSP Churchill Mk IV
+- Nerfed armor (health points) and armor structural to reflect weaker armor in real life
+
+
+v1.0.4 Sd.Kfz 251 Towing, Tiger I and II SPE sights and Vehicle UI, SPE Vehicle ammo components
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Misc
+- Updated keys
+
+IFA3 Sd.Kfz 251
+- Can now tow via scroll wheel user actions SPE towable statics (Pak 40 and LeFH)
+
+IFA3 Tiger Ausf. E and Kingtiger
+- Kingtiger applied SPE vehicle UI
+- Kingtiger applied SPE animated sights
+- Tiger E. applied SPE vehicle UI
+- Tiger E. applied SPE animated sights
+
+IFA3 IS2, T-34-76, T-34-85, SU-85, Sd.Kfz 124 Wespe, Cromwells, Churchills, Firefly, ZIS-2 AT Gun, ZIS-3 AT Gun
+- Applied SPE ammo components counter
+
+v1.0.3 APC, Wheeled, Tiger Ausf. E, JS2
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Misc
+- Added JPSP.bikey and Keys folder for whitelisting
+
+
+IFA3 Sd.Kfz 251
+- Given SPE Vehicle UI hud
+- Given SPE Sd.Kfz 250/1 sounds
+
+IFA3 Universal Carrier
+- Given SPE Vehicle UI hud
+
+IFA3 M3 Scout Car
+- Given SPE Vehicle UI hud
+- Given SPE .50 cal
+
+IFA3 Tiger Ausf. E
+- SPE Tiger VI H1 engine sounds applied to it
+- Main weapon changed to SPE Tiger gun
+- MGs changed to SPE MG vehicle MG34s used on tanks
+
+IFA3 JS2
+- Main weapon given SPE M4 105 Howitzer cannon
+- Added missing DT ammo for machine gunners
+
 v1.0.1 Soviet update
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 SU-85

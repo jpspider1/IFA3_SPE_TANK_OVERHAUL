@@ -250,6 +250,72 @@ class CfgVehicles
 		{
 			class MainTurret: MainTurret
 			{
+
+				// SPE Components
+				class Components
+				{
+					class VehicleSystemsTemplateLeftGunner;
+					class VehicleSystemsDisplayManagerComponentLeft: VehicleSystemsTemplateLeftGunner
+					{
+						componentType = "VehicleSystemsDisplayManager";
+						defaultDisplay = "EmptyDisplay";
+						forcedDisplay = "EmptyDisplay";
+						left = 1;
+						x = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFOLEFT_X"",	(safezoneX + 0.5 * 			(			((safezoneW / safezoneH) min 1.2) / 40))])";
+						y = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFOLEFT_Y"",	(safezoneY + safezoneH - 21 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25))])";
+						class Components
+						{
+							class AmmoDisplay
+							{
+								componentType = "CustomDisplayComponent";
+								resource = "SPE_RscVehicleAmmoStatus";
+							};
+							class CrewDisplay
+							{
+								componentType = "CrewDisplayComponent";
+							};
+							class EmptyDisplay
+							{
+								componentType = "EmptyDisplayComponent";
+							};
+							class MinimapDisplay
+							{
+								componentType = "MinimapDisplayComponent";
+							};
+						};
+					};
+
+					class VehicleSystemsTemplateRightGunner;
+					class VehicleSystemsDisplayManagerComponentRight: VehicleSystemsTemplateRightGunner
+					{
+						componentType = "VehicleSystemsDisplayManager";
+						defaultDisplay = "AmmoDisplay";
+						forcedDisplay = "AmmoDisplay";
+						right = 1;
+						x = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFORIGHT_X"",	((safezoneX + safezoneW) - (		(10 * 			(			((safezoneW / safezoneH) min 1.2) / 40)) + 0.5 * 			(			((safezoneW / safezoneH) min 1.2) / 40)))])";
+						y = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFORIGHT_Y"",	(safezoneY + safezoneH - 21 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25))])";
+						class Components
+						{
+							class AmmoDisplay
+							{
+								componentType = "CustomDisplayComponent";
+								resource = "SPE_RscVehicleAmmoStatus";
+							};
+							class CrewDisplay
+							{
+								componentType = "CrewDisplayComponent";
+							};
+							class EmptyDisplay
+							{
+								componentType = "EmptyDisplayComponent";
+							};
+							class MinimapDisplay
+							{
+								componentType = "MinimapDisplayComponent";
+							};
+						};
+					};
+				};
 				//weapons[] = {"LIB_OQF_75","LIB_Besa_coax"};
                 weapons[] = {"JPSP_QOF_75","LIB_Besa_coax"};
 				//magazines[] = {"LIB_30x_M61_M1_AP","LIB_14x_T45_M1_APCR","LIB_60x_M42A1_M1_HE","LIB_225Rnd_Besa","LIB_225Rnd_Besa","LIB_225Rnd_Besa","LIB_225Rnd_Besa","LIB_225Rnd_Besa","LIB_225Rnd_Besa","LIB_225Rnd_Besa","LIB_225Rnd_Besa","LIB_225Rnd_Besa","LIB_225Rnd_Besa"};
@@ -596,6 +662,77 @@ class CfgVehicles
     };
 	class JPSP_Churchill_Mk4_base: LIB_Churchill_base
 	{
+		armor = 400; //up from 400
+        armorStructural = 100; //up from 100
+        class HitPoints: HitPoints
+        {
+            class HitEngine
+            {
+                armor = 0.6; //0.6
+                explosionShielding = 0.2;
+                material = -1;
+                minimalHit = 0.15;
+                name = "engine_hit";
+                passThrough = 0.5; //0
+                radius = 0.25;
+                visual = "motor";
+
+                class DestructEffects
+                {
+                    ammoExplosionEffect = "";
+					class SPE_Engine_Smoke
+                    {
+                        intensity = 0.5;
+                        interval = 1;
+                        lifeTime = 60;
+                        position = "engine_smoke";
+                        simulation = "particles";
+                        type = "SmallWreckSmoke";
+                    };
+                    class SPE_Engine_Fire: SPE_Engine_Smoke
+                    {
+                        intensity = 0.5;
+                        interval = 1;
+                        lifeTime = 60;
+                        position = "engine_smoke";
+                        simulation = "particles";
+                        type = "SmallFireFPlace";
+                    };
+                    class SPE_Engine_Sounds: SPE_Engine_Smoke
+                    {
+                        intensity = 0.5;
+                        interval = 1;
+                        lifeTime = 60;
+                        position = "engine_smoke";
+                        simulation = "sound";
+                        type = "Fire";
+                    };
+                    class SPE_Engine_Sparks: SPE_Engine_Smoke
+                    {
+                        intensity = 0.5;
+                        interval = 1;
+                        lifeTime = 60;
+                        position = "engine_smoke";
+                        simulation = "particles";
+                        type = "FireSparks";
+                    };
+                };
+            };
+            class HitHull
+            {
+                armor = 0.8; //0.8 //-190 is the Tiger 1 from SPE value
+                explosionShielding = 0.2;
+                material = -1;
+                minimalHit = 0.15;
+                name = "hull_hit";
+                passThrough = 0.5; //default 1
+                radius = 0.25;
+                visual = "dmg_hull";
+				//SPE stuff not sure what it does
+				simulation = "SPE_AmmoRack";
+				armorComponent = "int_ammo";
+            };
+        };
 		class Turrets: Turrets
 		{
 			class MainTurret: MainTurret
@@ -891,6 +1028,72 @@ class CfgVehicles
 		{
 			class MainTurret: MainTurret
 			{
+				// SPE Components
+				class Components
+				{
+					class VehicleSystemsTemplateLeftGunner;
+					class VehicleSystemsDisplayManagerComponentLeft: VehicleSystemsTemplateLeftGunner
+					{
+						componentType = "VehicleSystemsDisplayManager";
+						defaultDisplay = "EmptyDisplay";
+						forcedDisplay = "EmptyDisplay";
+						left = 1;
+						x = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFOLEFT_X"",	(safezoneX + 0.5 * 			(			((safezoneW / safezoneH) min 1.2) / 40))])";
+						y = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFOLEFT_Y"",	(safezoneY + safezoneH - 21 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25))])";
+						class Components
+						{
+							class AmmoDisplay
+							{
+								componentType = "CustomDisplayComponent";
+								resource = "SPE_RscVehicleAmmoStatus";
+							};
+							class CrewDisplay
+							{
+								componentType = "CrewDisplayComponent";
+							};
+							class EmptyDisplay
+							{
+								componentType = "EmptyDisplayComponent";
+							};
+							class MinimapDisplay
+							{
+								componentType = "MinimapDisplayComponent";
+							};
+						};
+					};
+
+					class VehicleSystemsTemplateRightGunner;
+					class VehicleSystemsDisplayManagerComponentRight: VehicleSystemsTemplateRightGunner
+					{
+						componentType = "VehicleSystemsDisplayManager";
+						defaultDisplay = "AmmoDisplay";
+						forcedDisplay = "AmmoDisplay";
+						right = 1;
+						x = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFORIGHT_X"",	((safezoneX + safezoneW) - (		(10 * 			(			((safezoneW / safezoneH) min 1.2) / 40)) + 0.5 * 			(			((safezoneW / safezoneH) min 1.2) / 40)))])";
+						y = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFORIGHT_Y"",	(safezoneY + safezoneH - 21 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25))])";
+						class Components
+						{
+							class AmmoDisplay
+							{
+								componentType = "CustomDisplayComponent";
+								resource = "SPE_RscVehicleAmmoStatus";
+							};
+							class CrewDisplay
+							{
+								componentType = "CrewDisplayComponent";
+							};
+							class EmptyDisplay
+							{
+								componentType = "EmptyDisplayComponent";
+							};
+							class MinimapDisplay
+							{
+								componentType = "MinimapDisplayComponent";
+							};
+						};
+					};
+				};
+
 				//weapons[] = {"LIB_OQF_75","LIB_Besa_coax"};
                 weapons[] = {"JPSP_QOF_75","LIB_Besa_coax"};
 				//magazines[] = {"LIB_30x_M61_M1_AP","LIB_14x_T45_M1_APCR","LIB_60x_M42A1_M1_HE","LIB_225Rnd_Besa","LIB_225Rnd_Besa","LIB_225Rnd_Besa","LIB_225Rnd_Besa","LIB_225Rnd_Besa","LIB_225Rnd_Besa","LIB_225Rnd_Besa","LIB_225Rnd_Besa","LIB_225Rnd_Besa","LIB_225Rnd_Besa"};
@@ -1197,7 +1400,86 @@ class CfgVehicles
 		{
             class MainTurret: MainTurret
 			{
-                weapons[] = {"SPE_Pak43_L71","SPE_MG34_coax"};
+				// SPE Components
+				class Components
+				{
+					class VehicleSystemsTemplateLeftGunner;
+					class VehicleSystemsDisplayManagerComponentLeft: VehicleSystemsTemplateLeftGunner
+					{
+						componentType = "VehicleSystemsDisplayManager";
+						defaultDisplay = "EmptyDisplay";
+						forcedDisplay = "EmptyDisplay";
+						left = 1;
+						x = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFOLEFT_X"",	(safezoneX + 0.5 * 			(			((safezoneW / safezoneH) min 1.2) / 40))])";
+						y = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFOLEFT_Y"",	(safezoneY + safezoneH - 21 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25))])";
+						class Components
+						{
+							class AmmoDisplay
+							{
+								componentType = "CustomDisplayComponent";
+								resource = "SPE_RscVehicleAmmoStatus";
+							};
+							class CrewDisplay
+							{
+								componentType = "CrewDisplayComponent";
+							};
+							class EmptyDisplay
+							{
+								componentType = "EmptyDisplayComponent";
+							};
+							class MinimapDisplay
+							{
+								componentType = "MinimapDisplayComponent";
+							};
+						};
+					};
+
+					class VehicleSystemsTemplateRightGunner;
+					class VehicleSystemsDisplayManagerComponentRight: VehicleSystemsTemplateRightGunner
+					{
+						componentType = "VehicleSystemsDisplayManager";
+						defaultDisplay = "AmmoDisplay";
+						forcedDisplay = "AmmoDisplay";
+						right = 1;
+						x = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFORIGHT_X"",	((safezoneX + safezoneW) - (		(10 * 			(			((safezoneW / safezoneH) min 1.2) / 40)) + 0.5 * 			(			((safezoneW / safezoneH) min 1.2) / 40)))])";
+						y = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFORIGHT_Y"",	(safezoneY + safezoneH - 21 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25))])";
+						class Components
+						{
+							class AmmoDisplay
+							{
+								componentType = "CustomDisplayComponent";
+								resource = "SPE_RscVehicleAmmoStatus";
+							};
+							class CrewDisplay
+							{
+								componentType = "CrewDisplayComponent";
+							};
+							class EmptyDisplay
+							{
+								componentType = "EmptyDisplayComponent";
+							};
+							class MinimapDisplay
+							{
+								componentType = "MinimapDisplayComponent";
+							};
+						};
+					};
+				};
+				// SPE
+				gunnerOpticsModel = "\A3\weapons_f\reticle\optics_empty";
+				soundElevation[] = {"",0.00316228,1};
+				soundServo[] = {"\WW2\SPE_Assets_s\Vehicles\SoundFrameWork_s\Shared\turrets\Turret_Tank_RotationManual_LP",1.2,1,40,90};
+				soundServoVertical[] = {"\WW2\SPE_Assets_s\Vehicles\SoundFrameWork_s\Shared\turrets\Turret_Tank_Vertical_Med_LP.wss",1.3,1,90};
+				SPE_Rotate[] = {"reticle_r",0.005};
+				SPE_SightAmmoTypes[] = {"SPE_SprGr39_HE","SPE_PzGr40_APCR","SPE_PzGr43_AP","SPE_150rnd_MG34"};
+				SPE_SightFormulas[] = {"((0.537637*(%1^2)) + (0.347519*%1) + 0.00590366)","((0.466654*(%1^2)) + (0.241641*%1) + 0.00828166)","((0.463992*(%1^2)) + (0.414032*%1) + 0.00641487)","((0.117935*(%1^4)) + (0.162032*(%1^3)) + (0.0621089*(%1^2)) + (0.168801*%1) + 0.0000100917)"};
+				SPE_SightRotations[] = {{0.25,179.25},{0.25,179.25},{0.25,179.25},{209,108.15}};
+				SPE_Source_H[] = {};
+				SPE_Source_V[] = {"SPE_Vertical","SPE_Rotate"};
+				SPE_Vertical[] = {"reticle_v",0.005};
+				turretInfotype = "SPE_TZF9b_Gunner_Optic";
+				// END SPE
+                weapons[] = {"SPE_Pak43_L71_3","SPE_MG34_coax"};
                 //magazines[] = {"SPE_20x_PzGr43_AP","SPE_10x_PzGr40_APCR","SPE_10x_SprGr39_HE"};
                 magazines[] = {"SPE_30x_PzGr43_AP","SPE_10x_PzGr40_APCR",
                 "SPE_40x_SprGr39_HE",
@@ -1214,7 +1496,7 @@ class CfgVehicles
 					{
 						opticsDisplayName = "$STR_OpticsIn_Near_2_5x";
 						useModelOptics = 1;
-						gunnerOpticsModel = "\WW2\Assets_m\Vehicles\Optics_m\IF_Optics.p3d";
+						//gunnerOpticsModel = "\WW2\Assets_m\Vehicles\Optics_m\IF_Optics.p3d";
 						gunnerOpticsEffect[] = {"TankGunnerOptics2","OpticsBlur1","OpticsCHAbera1"};
 						initAngleX = 0;
 						minAngleX = -30;
@@ -1306,12 +1588,12 @@ class CfgVehicles
 			class recoil_source
 			{
 				source = "reload";
-				weapon = "SPE_Pak43_L71";
+				weapon = "SPE_Pak43_L71_3";
 			};
 			class muzzle_rot_cannon
 			{
 				source = "ammorandom";
-				weapon = "SPE_Pak43_L71";
+				weapon = "SPE_Pak43_L71_3";
 			};
 			class muzzle_rot_coax
 			{
@@ -1381,7 +1663,7 @@ class CfgVehicles
 				init = "(_this select 0) setVariable ['SPE_isTank',true];";
 			};
 		};
-        /*
+        
         //SPE hud
 		unitInfoType = "RscUnitInfoTank_SPE";
         class SPE_Veh_HudLayers: SPE_Veh_HudLayers
@@ -1426,7 +1708,7 @@ class CfgVehicles
                 };
             };
         };
-        */
+        
         
     };
 	class LIB_PzKpfwVI_E_base: LIB_Tank_base
@@ -1485,6 +1767,87 @@ class CfgVehicles
 		{
 			class MainTurret: MainTurret
 			{
+				// SPE Components
+				class Components
+				{
+					class VehicleSystemsTemplateLeftGunner;
+					class VehicleSystemsDisplayManagerComponentLeft: VehicleSystemsTemplateLeftGunner
+					{
+						componentType = "VehicleSystemsDisplayManager";
+						defaultDisplay = "EmptyDisplay";
+						forcedDisplay = "EmptyDisplay";
+						left = 1;
+						x = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFOLEFT_X"",	(safezoneX + 0.5 * 			(			((safezoneW / safezoneH) min 1.2) / 40))])";
+						y = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFOLEFT_Y"",	(safezoneY + safezoneH - 21 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25))])";
+						class Components
+						{
+							class AmmoDisplay
+							{
+								componentType = "CustomDisplayComponent";
+								resource = "SPE_RscVehicleAmmoStatus";
+							};
+							class CrewDisplay
+							{
+								componentType = "CrewDisplayComponent";
+							};
+							class EmptyDisplay
+							{
+								componentType = "EmptyDisplayComponent";
+							};
+							class MinimapDisplay
+							{
+								componentType = "MinimapDisplayComponent";
+							};
+						};
+					};
+
+					class VehicleSystemsTemplateRightGunner;
+					class VehicleSystemsDisplayManagerComponentRight: VehicleSystemsTemplateRightGunner
+					{
+						componentType = "VehicleSystemsDisplayManager";
+						defaultDisplay = "AmmoDisplay";
+						forcedDisplay = "AmmoDisplay";
+						right = 1;
+						x = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFORIGHT_X"",	((safezoneX + safezoneW) - (		(10 * 			(			((safezoneW / safezoneH) min 1.2) / 40)) + 0.5 * 			(			((safezoneW / safezoneH) min 1.2) / 40)))])";
+						y = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFORIGHT_Y"",	(safezoneY + safezoneH - 21 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25))])";
+						class Components
+						{
+							class AmmoDisplay
+							{
+								componentType = "CustomDisplayComponent";
+								resource = "SPE_RscVehicleAmmoStatus";
+							};
+							class CrewDisplay
+							{
+								componentType = "CrewDisplayComponent";
+							};
+							class EmptyDisplay
+							{
+								componentType = "EmptyDisplayComponent";
+							};
+							class MinimapDisplay
+							{
+								componentType = "MinimapDisplayComponent";
+							};
+						};
+					};
+				};
+
+				// SPE
+				gunnerOpticsModel = "\A3\weapons_f\reticle\optics_empty";
+				soundElevation[] = {"",0.00316228,1};
+				soundServo[] = {"\WW2\SPE_Assets_s\Vehicles\SoundFrameWork_s\Shared\turrets\Turret_Tank_RotationManual_LP",1.2,1,40,90};
+				soundServoVertical[] = {"\WW2\SPE_Assets_s\Vehicles\SoundFrameWork_s\Shared\turrets\Turret_Tank_Vertical_Med_LP.wss",1.3,1,90};
+				SPE_Rotate[] = {"reticle_r",0.005};
+				SPE_SightAmmoTypes[] = {"SPE_SprGr_KwK36_HE","SPE_PzGr40_KwK36_APCR","SPE_PzGr39_KwK36_AP","SPE_150rnd_MG34"};
+				SPE_SightFormulas[] = {"((0.537637*(%1^2)) + (0.347519*%1) + 0.00590366)","((0.466654*(%1^2)) + (0.241641*%1) + 0.00828166)","((0.463992*(%1^2)) + (0.414032*%1) + 0.00641487)","((0.117935*(%1^4)) + (0.162032*(%1^3)) + (0.0621089*(%1^2)) + (0.168801*%1) + 0.0000100917)"};
+				SPE_SightRotations[] = {{0.25,179.25},{0.25,179.25},{0.25,179.25},{209,108.15}};
+				SPE_Source_H[] = {};
+				SPE_Source_V[] = {"SPE_Vertical","SPE_Rotate"};
+				SPE_Vertical[] = {"reticle_v",0.005};
+				turretInfotype = "SPE_TZF9b_Gunner_Optic";
+				// END SPE
+
 				//weapons[] = {"LIB_KwK36_L56","LIB_MG34_coax"};
 				//magazines[] = {"LIB_30x_PzGr39_KwK36_AP","LIB_12x_PzGr40_KwK36_APCR","LIB_50x_SprGr_KwK36_HE","LIB_150rnd_MG34","LIB_150rnd_MG34","LIB_150rnd_MG34","LIB_150rnd_MG34","LIB_150rnd_MG34","LIB_150rnd_MG34","LIB_150rnd_MG34","LIB_150rnd_MG34","LIB_150rnd_MG34","LIB_150rnd_MG34","LIB_150rnd_MG34","LIB_150rnd_MG34","LIB_150rnd_MG34","LIB_150rnd_MG34","LIB_150rnd_MG34","LIB_150rnd_MG34"};
 				weapons[] = {"SPE_KwK36_L56","SPE_MG34_coax"};
@@ -1501,7 +1864,7 @@ class CfgVehicles
 					{
 						opticsDisplayName = "$STR_OpticsIn_Near_2_5x";
 						useModelOptics = 1;
-						gunnerOpticsModel = "\WW2\Assets_m\Vehicles\Optics_m\IF_Optics.p3d";
+						//gunnerOpticsModel = "\WW2\Assets_m\Vehicles\Optics_m\IF_Optics.p3d";
 						gunnerOpticsEffect[] = {"TankGunnerOptics2","OpticsBlur1","OpticsCHAbera1"};
 						initAngleX = 0;
 						minAngleX = -30;
@@ -1692,6 +2055,51 @@ class CfgVehicles
 				initPhase = 0;
 			};
 		};
+
+		//SPE hud
+		unitInfoType = "RscUnitInfoTank_SPE";
+        class SPE_Veh_HudLayers: SPE_Veh_HudLayers
+        {
+            class Vehicle: Vehicle
+            {
+                SPE_Layers_Array[] = {"hull","engine","wheel_1_1","wheel_1_2","wheel_2_1","wheel_2_2","turret","gun"};
+                class SPE_Veh_HudLayers: SPE_Veh_HudLayers
+                {
+                    class hull: hull
+                    {
+						Text = "\WW2\Core_t\IF_Data_t\Extended_HUD\Tanks\PzKpfwVI_E\hull.paa";
+                    };
+                    class engine: engine
+                    {
+						Text = "\WW2\Core_t\IF_Data_t\Extended_HUD\Tanks\PzKpfwVI_E\engine.paa";
+                    };
+                    class wheel_1_1: wheel_1_1
+                    {
+						Text = "\WW2\Core_t\IF_Data_t\Extended_HUD\Tanks\PzKpfwVI_E\ltrack.paa";
+                    };
+                    class wheel_1_2: wheel_1_2
+                    {
+						Text = "";
+                    };
+                    class wheel_2_1: wheel_2_1
+                    {
+						Text = "\WW2\Core_t\IF_Data_t\Extended_HUD\Tanks\PzKpfwVI_E\rtrack.paa";
+                    };
+                    class wheel_2_2: wheel_2_2
+                    {
+						Text = "";
+                    };
+					class turret: turret
+					{
+						Text = "\WW2\Core_t\IF_Data_t\Extended_HUD\Tanks\PzKpfwVI_E\turret.paa";
+					};
+					class gun: turret
+					{
+						Text = "\WW2\Core_t\IF_Data_t\Extended_HUD\Tanks\PzKpfwVI_E\gun.paa";
+					};
+                };
+            };
+        };
 	};
     class LIB_SdKfz124_base: LIB_Tank_base
     {
@@ -1699,6 +2107,72 @@ class CfgVehicles
 		{
 			class MainTurret: MainTurret
 			{
+				// SPE Components
+				class Components
+				{
+					class VehicleSystemsTemplateLeftGunner;
+					class VehicleSystemsDisplayManagerComponentLeft: VehicleSystemsTemplateLeftGunner
+					{
+						componentType = "VehicleSystemsDisplayManager";
+						defaultDisplay = "EmptyDisplay";
+						forcedDisplay = "EmptyDisplay";
+						left = 1;
+						x = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFOLEFT_X"",	(safezoneX + 0.5 * 			(			((safezoneW / safezoneH) min 1.2) / 40))])";
+						y = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFOLEFT_Y"",	(safezoneY + safezoneH - 21 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25))])";
+						class Components
+						{
+							class AmmoDisplay
+							{
+								componentType = "CustomDisplayComponent";
+								resource = "SPE_RscVehicleAmmoStatus";
+							};
+							class CrewDisplay
+							{
+								componentType = "CrewDisplayComponent";
+							};
+							class EmptyDisplay
+							{
+								componentType = "EmptyDisplayComponent";
+							};
+							class MinimapDisplay
+							{
+								componentType = "MinimapDisplayComponent";
+							};
+						};
+					};
+
+					class VehicleSystemsTemplateRightGunner;
+					class VehicleSystemsDisplayManagerComponentRight: VehicleSystemsTemplateRightGunner
+					{
+						componentType = "VehicleSystemsDisplayManager";
+						defaultDisplay = "AmmoDisplay";
+						forcedDisplay = "AmmoDisplay";
+						right = 1;
+						x = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFORIGHT_X"",	((safezoneX + safezoneW) - (		(10 * 			(			((safezoneW / safezoneH) min 1.2) / 40)) + 0.5 * 			(			((safezoneW / safezoneH) min 1.2) / 40)))])";
+						y = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFORIGHT_Y"",	(safezoneY + safezoneH - 21 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25))])";
+						class Components
+						{
+							class AmmoDisplay
+							{
+								componentType = "CustomDisplayComponent";
+								resource = "SPE_RscVehicleAmmoStatus";
+							};
+							class CrewDisplay
+							{
+								componentType = "CrewDisplayComponent";
+							};
+							class EmptyDisplay
+							{
+								componentType = "EmptyDisplayComponent";
+							};
+							class MinimapDisplay
+							{
+								componentType = "MinimapDisplayComponent";
+							};
+						};
+					};
+				};
+				
 				//weapons[] = {"LIB_leFH18_L28"};
 				weapons[] = {"SPE_leFH18_L28"};
                 //magazines[] = {"LIB_20x_Shell_105L28_Gr39HlC_HE","LIB_20x_Shell_105L28_Gr38_HE"};
@@ -1949,6 +2423,72 @@ class CfgVehicles
 		{
 			class MainTurret: MainTurret
 			{
+				// SPE Components
+				class Components
+				{
+					class VehicleSystemsTemplateLeftGunner;
+					class VehicleSystemsDisplayManagerComponentLeft: VehicleSystemsTemplateLeftGunner
+					{
+						componentType = "VehicleSystemsDisplayManager";
+						defaultDisplay = "EmptyDisplay";
+						forcedDisplay = "EmptyDisplay";
+						left = 1;
+						x = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFOLEFT_X"",	(safezoneX + 0.5 * 			(			((safezoneW / safezoneH) min 1.2) / 40))])";
+						y = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFOLEFT_Y"",	(safezoneY + safezoneH - 21 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25))])";
+						class Components
+						{
+							class AmmoDisplay
+							{
+								componentType = "CustomDisplayComponent";
+								resource = "SPE_RscVehicleAmmoStatus";
+							};
+							class CrewDisplay
+							{
+								componentType = "CrewDisplayComponent";
+							};
+							class EmptyDisplay
+							{
+								componentType = "EmptyDisplayComponent";
+							};
+							class MinimapDisplay
+							{
+								componentType = "MinimapDisplayComponent";
+							};
+						};
+					};
+
+					class VehicleSystemsTemplateRightGunner;
+					class VehicleSystemsDisplayManagerComponentRight: VehicleSystemsTemplateRightGunner
+					{
+						componentType = "VehicleSystemsDisplayManager";
+						defaultDisplay = "AmmoDisplay";
+						forcedDisplay = "AmmoDisplay";
+						right = 1;
+						x = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFORIGHT_X"",	((safezoneX + safezoneW) - (		(10 * 			(			((safezoneW / safezoneH) min 1.2) / 40)) + 0.5 * 			(			((safezoneW / safezoneH) min 1.2) / 40)))])";
+						y = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFORIGHT_Y"",	(safezoneY + safezoneH - 21 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25))])";
+						class Components
+						{
+							class AmmoDisplay
+							{
+								componentType = "CustomDisplayComponent";
+								resource = "SPE_RscVehicleAmmoStatus";
+							};
+							class CrewDisplay
+							{
+								componentType = "CrewDisplayComponent";
+							};
+							class EmptyDisplay
+							{
+								componentType = "EmptyDisplayComponent";
+							};
+							class MinimapDisplay
+							{
+								componentType = "MinimapDisplayComponent";
+							};
+						};
+					};
+				};
+
                 weapons[] = {"LIB_M6_L53","SPE_M1919A4_coax"};
 				magazines[] = {"LIB_50x_37L57_M74_AP","LIB_40x_37L57_M51_APCR","LIB_60x_37L57_M63_HE",
                 "SPE_250Rnd_M1919A4","SPE_250Rnd_M1919A4","SPE_250Rnd_M1919A4","SPE_250Rnd_M1919A4","SPE_250Rnd_M1919A4","SPE_250Rnd_M1919A4","SPE_250Rnd_M1919A4","SPE_250Rnd_M1919A4"};
@@ -2062,6 +2602,72 @@ class CfgVehicles
 		{
 			class MainTurret: MainTurret
 			{
+				// SPE Components
+				class Components
+				{
+					class VehicleSystemsTemplateLeftGunner;
+					class VehicleSystemsDisplayManagerComponentLeft: VehicleSystemsTemplateLeftGunner
+					{
+						componentType = "VehicleSystemsDisplayManager";
+						defaultDisplay = "EmptyDisplay";
+						forcedDisplay = "EmptyDisplay";
+						left = 1;
+						x = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFOLEFT_X"",	(safezoneX + 0.5 * 			(			((safezoneW / safezoneH) min 1.2) / 40))])";
+						y = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFOLEFT_Y"",	(safezoneY + safezoneH - 21 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25))])";
+						class Components
+						{
+							class AmmoDisplay
+							{
+								componentType = "CustomDisplayComponent";
+								resource = "SPE_RscVehicleAmmoStatus";
+							};
+							class CrewDisplay
+							{
+								componentType = "CrewDisplayComponent";
+							};
+							class EmptyDisplay
+							{
+								componentType = "EmptyDisplayComponent";
+							};
+							class MinimapDisplay
+							{
+								componentType = "MinimapDisplayComponent";
+							};
+						};
+					};
+
+					class VehicleSystemsTemplateRightGunner;
+					class VehicleSystemsDisplayManagerComponentRight: VehicleSystemsTemplateRightGunner
+					{
+						componentType = "VehicleSystemsDisplayManager";
+						defaultDisplay = "AmmoDisplay";
+						forcedDisplay = "AmmoDisplay";
+						right = 1;
+						x = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFORIGHT_X"",	((safezoneX + safezoneW) - (		(10 * 			(			((safezoneW / safezoneH) min 1.2) / 40)) + 0.5 * 			(			((safezoneW / safezoneH) min 1.2) / 40)))])";
+						y = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFORIGHT_Y"",	(safezoneY + safezoneH - 21 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25))])";
+						class Components
+						{
+							class AmmoDisplay
+							{
+								componentType = "CustomDisplayComponent";
+								resource = "SPE_RscVehicleAmmoStatus";
+							};
+							class CrewDisplay
+							{
+								componentType = "CrewDisplayComponent";
+							};
+							class EmptyDisplay
+							{
+								componentType = "EmptyDisplayComponent";
+							};
+							class MinimapDisplay
+							{
+								componentType = "MinimapDisplayComponent";
+							};
+						};
+					};
+				};
+
 				proxyIndex = 1;
 				weapons[] = {"SPE_M1_HC_76mm_L55","SPE_M1919A4_coax"};
 				magazines[] = {"SPE_30x_76mm_M1_HC_M62_APCBC","SPE_14x_76mm_M1_HC_M93_APCR","SPE_60x_76mm_M1_HC_M42_HE",
@@ -2324,6 +2930,160 @@ class CfgVehicles
             soundSetsExt[] = {"SPE_tank_pz4_ext_idle_SoundSet","SPE_tank_pz4_ext_slow_SoundSet","SPE_tank_pz4_ext_mid_SoundSet","SPE_tank_pz4_ext_fast_SoundSet","SPE_tank_pz4_exhaust_ext_idle_SoundSet","SPE_tank_pz4_exhaust_ext_slow_SoundSet","SPE_tank_pz4_exhaust_ext_mid_SoundSet","SPE_tank_pz4_exhaust_ext_fast_SoundSet","SPE_tank_pz4_dist_slow_SoundSet","SPE_tank_pz4_dist_mid_SoundSet","SPE_tank_pz4_dist_high_SoundSet","SPE_tank_pz4_ext_tracks_slow_soundSet","SPE_tank_pz4_ext_tracks_mid_soundSet","SPE_tank_pz4_ext_tracks_fast_soundSet","SPE_tank_pz4_ext_rumble_soundSet","SPE_tank_ext_internalFire_soundSet","SPE_trackSurfaceSound_ext_soft_soundSet","SPE_trackSurfaceSound_ext_hard_soundSet","SPE_trackSurfaceSound_ext_sand_soundSet","SPE_tank_Ext_rain_light_soundSet","SPE_tank_Ext_rain_hard_soundSet","Tank_General_Collision_SoundSet"};
             soundSetsInt[] = {"SPE_tank_pz4_int_idle_SoundSet","SPE_tank_pz4_int_slow_SoundSet","SPE_tank_pz4_int_mid_SoundSet","SPE_tank_pz4_int_fast_SoundSet","SPE_tank_pz4_exhaust_int_idle_SoundSet","SPE_tank_pz4_exhaust_int_slow_SoundSet","SPE_tank_pz4_exhaust_int_mid_SoundSet","SPE_tank_pz4_exhaust_int_fast_SoundSet","SPE_tank_pz4_ext_tracks_slow_soundSet","SPE_tank_pz4_ext_tracks_mid_soundSet","SPE_tank_pz4_ext_tracks_fast_soundSet","SPE_tank_pz4_ext_rumble_soundSet","SPE_tank_int_internalFire_soundSet","SPE_int_breakingStrain_soundSet","SPE_tankRattling_1_soundSet","SPE_int_vehicleStrainTankHeavy_soundSet","SPE_curveStress_1_soundShader","SPE_tank_Int_rain_light_soundSet","SPE_tank_Int_rain_hard_soundSet","Tank_General_Collision_Int_SoundSet","SPE_cscReload_Int_shellEject_genericCannon_SoundSet","SPE_cscReload_Int_movementLoop_genericCannon_SoundSet","SPE_cscReload_Int_breechOpen_genericCannon_SoundSet","SPE_cscReload_Int_shellLoading_genericCannon_SoundSet"};
         };
+
+		
+		class Turrets: Turrets
+		{
+			class MainTurret: MainTurret
+			{
+				// SPE
+				soundServo[] = {"\WW2\SPE_Assets_s\Vehicles\SoundFrameWork_s\Shared\turrets\Turret_Flak3X_Rotation_LP.wss",1.2,1,40};
+				soundServoVertical[] = {"\WW2\SPE_Assets_s\Vehicles\SoundFrameWork_s\Shared\turrets\Turret_Flak3X_Elevation_LP.wss",1.2,1,40};
+				turretInfoType = "SPE_Flak38_Gunner_Optic";
+				// END
+				proxyIndex = 1;
+				weapons[] = {"JPSP_Flak_38_x4"};
+				magazines[] = {"JPSP_80x_SprGr_Flak_38","JPSP_80x_SprGr_Flak_38","JPSP_80x_SprGr_Flak_38","JPSP_80x_SprGr_Flak_38","JPSP_80x_SprGr_Flak_38","JPSP_80x_PzGr_Flak_38_AP_T","JPSP_80x_PzGr_Flak_38_AP_T","JPSP_80x_PzGr_Flak_38_AP_T","JPSP_80x_PzGr_Flak_38_AP_T"};
+				minElev = -5;
+				maxElev = 85;
+				memoryPointGunnerOptics = "gunnerView";
+				maxHorizontalRotSpeed = "((360/10)/40)";
+				maxVerticalRotSpeed = 0.45;
+				primaryObserver = 1;
+				gunnerInAction = "Flakvierling_38_Gunner";
+				gunnerType = "LIB_GER_spg_unterofficer";
+				forceHideGunner = 1;
+				viewGunnerInExternal = 1;
+				animationSourceHatch = "";
+				gunnerForceOptics = 0;
+				gunnerOpticsModel = "\WW2\Assets_m\Vehicles\Optics_m\IF_Optika_Flak.p3d";
+				soundAttenuationTurret = "HeliAttenuationGunner";
+				disableSoundAttenuation = 0;
+				LIB_WP_TurretProtected = 0.5;
+				class OpticsIn
+				{
+					class Near
+					{
+						opticsDisplayName = "$STR_OpticsIn_Near_2_5x";
+						useModelOptics = 1;
+						gunnerOpticsModel = "\WW2\Assets_m\Vehicles\Optics_m\IF_Optika_Flak.p3d";
+						gunnerOpticsEffect[] = {};
+						initAngleX = 0;
+						minAngleX = -30;
+						maxAngleX = 30;
+						initAngleY = 0;
+						minAngleY = -100;
+						maxAngleY = 100;
+						minFov = 0.25; //0.4
+						initFov = 0.75; //0.4
+						maxFov = 1.25; //0.4
+						memoryPointGunnerOptics = "gunnerview";
+						visionMode[] = {"Normal"};
+						opticsFlare = 1;
+						opticsDisablePeripherialVision = 1;
+						cameraDir = "";
+					};
+					class Medium: Near
+					{
+						initFov = 0.35;
+					};
+					class Narrow: Near
+					{
+						camPos = "gunnerview_optic";
+						gunnerOpticsEffect[] = {"OpticsCHAbera1","OpticsBlur2"};
+						gunnerOpticsModel = "\WW2\SPE_Assets_m\Vehicles\Optics_m\SPE_Optics_Pak40_Scripted.p3d";
+						initAngleX = 0;
+						initAngleY = 0;
+						initFov = 0.0833333;
+						maxAngleX = 30;
+						maxAngleY = 100;
+						maxFov = 1.25;
+						minAngleX = -30;
+						minAngleY = -100;
+						minFov = 0.25;
+						opticsDisplayName = "ZF3X8";
+						thermalMode[] = {0,1};
+						visionMode[] = {"Normal"};
+					};
+				};
+				class ViewOptics: ViewOptics
+				{
+					initFov = 0.4;
+					minFov = 0.4;
+					maxFov = 0.4;
+				};
+				class Turrets{};
+				memoryPointGun[] = {"usti hlavne 0","usti hlavne 1","usti hlavne 2","usti hlavne 3"};
+			};
+			/*
+			class kurs_MG_turret: kurs_MG_turret
+			{
+				proxyIndex = 2;
+			};
+			*/
+			
+		};
+		class AnimationSources: Animationsources
+		{
+			class recoil_source
+			{
+				source = "reload";
+				weapon = "LIB_KwK40_L48";
+			};
+			class muzzle_rot_cannon
+			{
+				source = "ammorandom";
+				weapon = "LIB_KwK40_L48";
+			};
+			class muzzle_rot_coax
+			{
+				source = "ammorandom";
+				weapon = "LIB_MG34_coax";
+			};
+			class muzzle_hide_coax
+			{
+				source = "reload";
+				weapon = "LIB_MG34_coax";
+			};
+			class Hide_Shields_Hull
+			{
+				displayName = "$STR_LIB_DN_ASSETS_VEHICLES_HIDE_HULL_SHIELDS";
+				source = "user";
+				animPeriod = 1e-05;
+				initPhase = 1;
+			};
+			class LIB_FlaK_38_X4_reload_weapon_state
+			{
+				source = "reload";
+				weapon = "JPSP_Flak_38_x4";
+			};
+			class LIB_FlaK_38_X4_reload_magazine_state: LIB_FlaK_38_X4_reload_weapon_state
+			{
+				source = "reloadmagazine";
+			};
+			class LIB_FlaK_38_X4_count_magazine_state: LIB_FlaK_38_X4_reload_weapon_state
+			{
+				source = "revolving";
+			};
+			class ReloadAnim
+			{
+				source = "reload";
+				weapon = "JPSP_Flak_38_x4";
+				Raw = 1;
+			};
+			class ReloadMagazine
+			{
+				source = "reloadmagazine";
+				weapon = "JPSP_Flak_38_x4";
+				Raw = 1;
+			};
+			class Revolving
+			{
+				source = "revolving";
+				weapon = "JPSP_Flak_38_x4";
+				Raw = 1;
+			};
+		};
 		class EventHandlers
 		{
 			class SPE_AntiFlip
@@ -2356,7 +3116,7 @@ class CfgVehicles
 				init = "(_this select 0) setVariable ['SPE_isTank',true];";
 			};
 		};
-        /*
+        
         //SPE hud
 		unitInfoType = "RscUnitInfoTank_SPE";
 		class SPE_Veh_HudLayers: SPE_Veh_HudLayers
@@ -2401,7 +3161,7 @@ class CfgVehicles
                 };
             };
         };
-        */
+        
     };
     class LIB_SU85_base: LIB_Tank_base
     {
@@ -2411,6 +3171,72 @@ class CfgVehicles
 		{
 			class MainTurret: MainTurret
 			{
+				// SPE Components
+				class Components
+				{
+					class VehicleSystemsTemplateLeftGunner;
+					class VehicleSystemsDisplayManagerComponentLeft: VehicleSystemsTemplateLeftGunner
+					{
+						componentType = "VehicleSystemsDisplayManager";
+						defaultDisplay = "EmptyDisplay";
+						forcedDisplay = "EmptyDisplay";
+						left = 1;
+						x = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFOLEFT_X"",	(safezoneX + 0.5 * 			(			((safezoneW / safezoneH) min 1.2) / 40))])";
+						y = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFOLEFT_Y"",	(safezoneY + safezoneH - 21 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25))])";
+						class Components
+						{
+							class AmmoDisplay
+							{
+								componentType = "CustomDisplayComponent";
+								resource = "SPE_RscVehicleAmmoStatus";
+							};
+							class CrewDisplay
+							{
+								componentType = "CrewDisplayComponent";
+							};
+							class EmptyDisplay
+							{
+								componentType = "EmptyDisplayComponent";
+							};
+							class MinimapDisplay
+							{
+								componentType = "MinimapDisplayComponent";
+							};
+						};
+					};
+
+					class VehicleSystemsTemplateRightGunner;
+					class VehicleSystemsDisplayManagerComponentRight: VehicleSystemsTemplateRightGunner
+					{
+						componentType = "VehicleSystemsDisplayManager";
+						defaultDisplay = "AmmoDisplay";
+						forcedDisplay = "AmmoDisplay";
+						right = 1;
+						x = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFORIGHT_X"",	((safezoneX + safezoneW) - (		(10 * 			(			((safezoneW / safezoneH) min 1.2) / 40)) + 0.5 * 			(			((safezoneW / safezoneH) min 1.2) / 40)))])";
+						y = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFORIGHT_Y"",	(safezoneY + safezoneH - 21 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25))])";
+						class Components
+						{
+							class AmmoDisplay
+							{
+								componentType = "CustomDisplayComponent";
+								resource = "SPE_RscVehicleAmmoStatus";
+							};
+							class CrewDisplay
+							{
+								componentType = "CrewDisplayComponent";
+							};
+							class EmptyDisplay
+							{
+								componentType = "EmptyDisplayComponent";
+							};
+							class MinimapDisplay
+							{
+								componentType = "MinimapDisplayComponent";
+							};
+						};
+					};
+				};
+				
 				weapons[] = {"JPSP_LIB_D_55"};
 				magazines[] = {"SPE_15x_76mm_M7_M62_APCBC","SPE_8x_76mm_M7_M93_APCR","SPE_25x_76mm_M7_M42_HE"};
 			};
@@ -2527,6 +3353,72 @@ class CfgVehicles
 		{
 			class MainTurret: MainTurret
 			{
+				// SPE Components
+				class Components
+				{
+					class VehicleSystemsTemplateLeftGunner;
+					class VehicleSystemsDisplayManagerComponentLeft: VehicleSystemsTemplateLeftGunner
+					{
+						componentType = "VehicleSystemsDisplayManager";
+						defaultDisplay = "EmptyDisplay";
+						forcedDisplay = "EmptyDisplay";
+						left = 1;
+						x = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFOLEFT_X"",	(safezoneX + 0.5 * 			(			((safezoneW / safezoneH) min 1.2) / 40))])";
+						y = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFOLEFT_Y"",	(safezoneY + safezoneH - 21 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25))])";
+						class Components
+						{
+							class AmmoDisplay
+							{
+								componentType = "CustomDisplayComponent";
+								resource = "SPE_RscVehicleAmmoStatus";
+							};
+							class CrewDisplay
+							{
+								componentType = "CrewDisplayComponent";
+							};
+							class EmptyDisplay
+							{
+								componentType = "EmptyDisplayComponent";
+							};
+							class MinimapDisplay
+							{
+								componentType = "MinimapDisplayComponent";
+							};
+						};
+					};
+
+					class VehicleSystemsTemplateRightGunner;
+					class VehicleSystemsDisplayManagerComponentRight: VehicleSystemsTemplateRightGunner
+					{
+						componentType = "VehicleSystemsDisplayManager";
+						defaultDisplay = "AmmoDisplay";
+						forcedDisplay = "AmmoDisplay";
+						right = 1;
+						x = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFORIGHT_X"",	((safezoneX + safezoneW) - (		(10 * 			(			((safezoneW / safezoneH) min 1.2) / 40)) + 0.5 * 			(			((safezoneW / safezoneH) min 1.2) / 40)))])";
+						y = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFORIGHT_Y"",	(safezoneY + safezoneH - 21 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25))])";
+						class Components
+						{
+							class AmmoDisplay
+							{
+								componentType = "CustomDisplayComponent";
+								resource = "SPE_RscVehicleAmmoStatus";
+							};
+							class CrewDisplay
+							{
+								componentType = "CrewDisplayComponent";
+							};
+							class EmptyDisplay
+							{
+								componentType = "EmptyDisplayComponent";
+							};
+							class MinimapDisplay
+							{
+								componentType = "MinimapDisplayComponent";
+							};
+						};
+					};
+				};
+
 				weapons[] = {"JPSP_LIB_76mm_ZIS3"};
 				magazines[] = {"SPE_40x_76mm_M7_M62_APCBC","SPE_10x_76mm_M7_M93_APCR","SPE_50x_76mm_M7_M42_HE"};
 				gunnerOpticsModel = "\WW2\Assets_m\Vehicles\Optics_m\IF_Optika_Zis3.p3d";
@@ -2608,6 +3500,72 @@ class CfgVehicles
 		{
 			class MainTurret: MainTurret
 			{
+
+				// SPE Components
+				class Components
+				{
+					class VehicleSystemsTemplateLeftGunner;
+					class VehicleSystemsDisplayManagerComponentLeft: VehicleSystemsTemplateLeftGunner
+					{
+						componentType = "VehicleSystemsDisplayManager";
+						defaultDisplay = "EmptyDisplay";
+						forcedDisplay = "EmptyDisplay";
+						left = 1;
+						x = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFOLEFT_X"",	(safezoneX + 0.5 * 			(			((safezoneW / safezoneH) min 1.2) / 40))])";
+						y = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFOLEFT_Y"",	(safezoneY + safezoneH - 21 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25))])";
+						class Components
+						{
+							class AmmoDisplay
+							{
+								componentType = "CustomDisplayComponent";
+								resource = "SPE_RscVehicleAmmoStatus";
+							};
+							class CrewDisplay
+							{
+								componentType = "CrewDisplayComponent";
+							};
+							class EmptyDisplay
+							{
+								componentType = "EmptyDisplayComponent";
+							};
+							class MinimapDisplay
+							{
+								componentType = "MinimapDisplayComponent";
+							};
+						};
+					};
+
+					class VehicleSystemsTemplateRightGunner;
+					class VehicleSystemsDisplayManagerComponentRight: VehicleSystemsTemplateRightGunner
+					{
+						componentType = "VehicleSystemsDisplayManager";
+						defaultDisplay = "AmmoDisplay";
+						forcedDisplay = "AmmoDisplay";
+						right = 1;
+						x = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFORIGHT_X"",	((safezoneX + safezoneW) - (		(10 * 			(			((safezoneW / safezoneH) min 1.2) / 40)) + 0.5 * 			(			((safezoneW / safezoneH) min 1.2) / 40)))])";
+						y = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFORIGHT_Y"",	(safezoneY + safezoneH - 21 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25))])";
+						class Components
+						{
+							class AmmoDisplay
+							{
+								componentType = "CustomDisplayComponent";
+								resource = "SPE_RscVehicleAmmoStatus";
+							};
+							class CrewDisplay
+							{
+								componentType = "CrewDisplayComponent";
+							};
+							class EmptyDisplay
+							{
+								componentType = "EmptyDisplayComponent";
+							};
+							class MinimapDisplay
+							{
+								componentType = "MinimapDisplayComponent";
+							};
+						};
+					};
+				};
 				weapons[] = {"JPSP_LIB_57mm_ZIS2"};
 				magazines[] = {"SPE_20x_57mm_M86_APCBC","SPE_20x_57mm_M70_AP","SPE_12x_6pdr_Mk1T_APDS","SPE_21x_57mm_T18_HE","SPE_21x_57mm_T18_HE"};
 				gunnerOpticsModel = "\WW2\Assets_m\Vehicles\Optics_m\IF_Optika_Zis3.p3d";
@@ -2698,6 +3656,72 @@ class CfgVehicles
 		{
 			class MainTurret: MainTurret
 			{
+
+				// SPE Components
+				class Components
+				{
+					class VehicleSystemsTemplateLeftGunner;
+					class VehicleSystemsDisplayManagerComponentLeft: VehicleSystemsTemplateLeftGunner
+					{
+						componentType = "VehicleSystemsDisplayManager";
+						defaultDisplay = "EmptyDisplay";
+						forcedDisplay = "EmptyDisplay";
+						left = 1;
+						x = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFOLEFT_X"",	(safezoneX + 0.5 * 			(			((safezoneW / safezoneH) min 1.2) / 40))])";
+						y = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFOLEFT_Y"",	(safezoneY + safezoneH - 21 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25))])";
+						class Components
+						{
+							class AmmoDisplay
+							{
+								componentType = "CustomDisplayComponent";
+								resource = "SPE_RscVehicleAmmoStatus";
+							};
+							class CrewDisplay
+							{
+								componentType = "CrewDisplayComponent";
+							};
+							class EmptyDisplay
+							{
+								componentType = "EmptyDisplayComponent";
+							};
+							class MinimapDisplay
+							{
+								componentType = "MinimapDisplayComponent";
+							};
+						};
+					};
+
+					class VehicleSystemsTemplateRightGunner;
+					class VehicleSystemsDisplayManagerComponentRight: VehicleSystemsTemplateRightGunner
+					{
+						componentType = "VehicleSystemsDisplayManager";
+						defaultDisplay = "AmmoDisplay";
+						forcedDisplay = "AmmoDisplay";
+						right = 1;
+						x = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFORIGHT_X"",	((safezoneX + safezoneW) - (		(10 * 			(			((safezoneW / safezoneH) min 1.2) / 40)) + 0.5 * 			(			((safezoneW / safezoneH) min 1.2) / 40)))])";
+						y = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFORIGHT_Y"",	(safezoneY + safezoneH - 21 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25))])";
+						class Components
+						{
+							class AmmoDisplay
+							{
+								componentType = "CustomDisplayComponent";
+								resource = "SPE_RscVehicleAmmoStatus";
+							};
+							class CrewDisplay
+							{
+								componentType = "CrewDisplayComponent";
+							};
+							class EmptyDisplay
+							{
+								componentType = "EmptyDisplayComponent";
+							};
+							class MinimapDisplay
+							{
+								componentType = "MinimapDisplayComponent";
+							};
+						};
+					};
+				};
 				weapons[] = {"JPSP_LIB_76mm_F34","LIB_DT29"};
 				magazines[] = {"SPE_40x_M61_M1_AP","SPE_14x_T45_M1_APCR","SPE_50x_M48_HE",
 				"LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT"};
@@ -3023,6 +4047,72 @@ class CfgVehicles
 		{
 			class MainTurret: MainTurret
 			{
+
+				// SPE Components
+				class Components
+				{
+					class VehicleSystemsTemplateLeftGunner;
+					class VehicleSystemsDisplayManagerComponentLeft: VehicleSystemsTemplateLeftGunner
+					{
+						componentType = "VehicleSystemsDisplayManager";
+						defaultDisplay = "EmptyDisplay";
+						forcedDisplay = "EmptyDisplay";
+						left = 1;
+						x = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFOLEFT_X"",	(safezoneX + 0.5 * 			(			((safezoneW / safezoneH) min 1.2) / 40))])";
+						y = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFOLEFT_Y"",	(safezoneY + safezoneH - 21 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25))])";
+						class Components
+						{
+							class AmmoDisplay
+							{
+								componentType = "CustomDisplayComponent";
+								resource = "SPE_RscVehicleAmmoStatus";
+							};
+							class CrewDisplay
+							{
+								componentType = "CrewDisplayComponent";
+							};
+							class EmptyDisplay
+							{
+								componentType = "EmptyDisplayComponent";
+							};
+							class MinimapDisplay
+							{
+								componentType = "MinimapDisplayComponent";
+							};
+						};
+					};
+
+					class VehicleSystemsTemplateRightGunner;
+					class VehicleSystemsDisplayManagerComponentRight: VehicleSystemsTemplateRightGunner
+					{
+						componentType = "VehicleSystemsDisplayManager";
+						defaultDisplay = "AmmoDisplay";
+						forcedDisplay = "AmmoDisplay";
+						right = 1;
+						x = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFORIGHT_X"",	((safezoneX + safezoneW) - (		(10 * 			(			((safezoneW / safezoneH) min 1.2) / 40)) + 0.5 * 			(			((safezoneW / safezoneH) min 1.2) / 40)))])";
+						y = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFORIGHT_Y"",	(safezoneY + safezoneH - 21 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25))])";
+						class Components
+						{
+							class AmmoDisplay
+							{
+								componentType = "CustomDisplayComponent";
+								resource = "SPE_RscVehicleAmmoStatus";
+							};
+							class CrewDisplay
+							{
+								componentType = "CrewDisplayComponent";
+							};
+							class EmptyDisplay
+							{
+								componentType = "EmptyDisplayComponent";
+							};
+							class MinimapDisplay
+							{
+								componentType = "MinimapDisplayComponent";
+							};
+						};
+					};
+				};
 				weapons[] = {"JPSP_LIB_85mm_ZiSS53","LIB_DT29"};
 				magazines[] = {"SPE_14x_76mm_M7_M62_APCBC","SPE_5x_76mm_M7_M93_APCR","SPE_36x_76mm_M7_M42_HE",
 				"LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT"};
@@ -3187,6 +4277,72 @@ class CfgVehicles
 		{
 			class MainTurret: MainTurret
 			{
+
+				// SPE Components
+				class Components
+				{
+					class VehicleSystemsTemplateLeftGunner;
+					class VehicleSystemsDisplayManagerComponentLeft: VehicleSystemsTemplateLeftGunner
+					{
+						componentType = "VehicleSystemsDisplayManager";
+						defaultDisplay = "EmptyDisplay";
+						forcedDisplay = "EmptyDisplay";
+						left = 1;
+						x = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFOLEFT_X"",	(safezoneX + 0.5 * 			(			((safezoneW / safezoneH) min 1.2) / 40))])";
+						y = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFOLEFT_Y"",	(safezoneY + safezoneH - 21 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25))])";
+						class Components
+						{
+							class AmmoDisplay
+							{
+								componentType = "CustomDisplayComponent";
+								resource = "SPE_RscVehicleAmmoStatus";
+							};
+							class CrewDisplay
+							{
+								componentType = "CrewDisplayComponent";
+							};
+							class EmptyDisplay
+							{
+								componentType = "EmptyDisplayComponent";
+							};
+							class MinimapDisplay
+							{
+								componentType = "MinimapDisplayComponent";
+							};
+						};
+					};
+
+					class VehicleSystemsTemplateRightGunner;
+					class VehicleSystemsDisplayManagerComponentRight: VehicleSystemsTemplateRightGunner
+					{
+						componentType = "VehicleSystemsDisplayManager";
+						defaultDisplay = "AmmoDisplay";
+						forcedDisplay = "AmmoDisplay";
+						right = 1;
+						x = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFORIGHT_X"",	((safezoneX + safezoneW) - (		(10 * 			(			((safezoneW / safezoneH) min 1.2) / 40)) + 0.5 * 			(			((safezoneW / safezoneH) min 1.2) / 40)))])";
+						y = "(profilenamespace getvariable [""IGUI_GRID_CUSTOMINFORIGHT_Y"",	(safezoneY + safezoneH - 21 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25))])";
+						class Components
+						{
+							class AmmoDisplay
+							{
+								componentType = "CustomDisplayComponent";
+								resource = "SPE_RscVehicleAmmoStatus";
+							};
+							class CrewDisplay
+							{
+								componentType = "CrewDisplayComponent";
+							};
+							class EmptyDisplay
+							{
+								componentType = "EmptyDisplayComponent";
+							};
+							class MinimapDisplay
+							{
+								componentType = "MinimapDisplayComponent";
+							};
+						};
+					};
+				};
 				weapons[] = {"JPSP_D25T","LIB_DT29"};
 				//magazines[] = {"LIB_63rnd_DT"};
 				magazines[] = {"SPE_12x_M101_M67_HEAT","SPE_16x_M101_M1_HE","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT","LIB_63rnd_DT"};
@@ -3411,6 +4567,7 @@ class CfgWeapons
     class SPE_M3_L40;
 	class SPE_M1_57mm_Base;
     class SPE_M1_57mm;
+	class SPE_TankCannon_base;
 	class SPE_M4_Howitzer;
 	class SPE_M4_Howitzer_base;
 	class SPE_M4_Howitzer_HEAT_AI;
@@ -3507,5 +4664,181 @@ class CfgWeapons
 			magazineReloadTime = 24;
 			reloadTime = 24;
 		};
+	};
+	
+	class baseSoundModeType;
+	class CannonCore;
+	class SPE_AntiAirCannon_base: CannonCore
+	{
+		class close;
+		class manual;
+		class short;
+		class medium;
+		class far;
+		class Eventhandlers;
+	};
+	
+	class JPSP_Flak_38_x4 : SPE_AntiAirCannon_base
+	{
+		scope = 1;
+		displayName = "4x FlaK 38";
+		magazineReloadTime = 8;
+		magazines[] = {"JPSP_80x_SprGr_Flak_38","JPSP_80x_PzGr_Flak_38_AP_T"};
+		//Ranging
+		class manual: manual
+		{
+			scope = 1;
+			burst = 2;
+			multiplier = 1;
+			reloadTime = 0.075;
+			dispersion = 0.009;
+			sounds[]=
+			{
+				"StandardSound"
+			};
+			class StandardSound: baseSoundModeType
+			{
+				soundSetShot[] = {"SPE_int_cannon_20mm_Shot_SoundSet","SPE_cannon_20mm_Tail_SoundSet"};
+			};
+		};
+		class close: close
+		{
+			scope = 1;
+			burst = 10;
+			multiplier = 1;
+			reloadTime = 0.07;
+			dispersion = 0.009;
+			sounds[]=
+			{
+				"StandardSound"
+			};
+			class StandardSound: baseSoundModeType
+			{
+				soundSetShot[] = {"SPE_int_cannon_20mm_Shot_SoundSet","SPE_cannon_20mm_Tail_SoundSet"};
+			};
+		};
+		class short: short
+		{
+			scope = 1;
+			burst = 8;
+			multiplier = 1;
+			reloadTime = 0.07;
+			dispersion = 0.009;
+			sounds[]=
+			{
+				"StandardSound"
+			};
+			class StandardSound: baseSoundModeType
+			{
+				soundSetShot[] = {"SPE_int_cannon_20mm_Shot_SoundSet","SPE_cannon_20mm_Tail_SoundSet"};
+			};
+		};
+		class medium: medium
+		{
+			scope = 1;
+			burst = 8;
+			multiplier = 1;
+			reloadTime = 0.07;
+			dispersion = 0.009;
+			sounds[]=
+			{
+				"StandardSound"
+			};
+			class StandardSound: baseSoundModeType
+			{
+				soundSetShot[] = {"SPE_int_cannon_20mm_Shot_SoundSet","SPE_cannon_20mm_Tail_SoundSet"};
+			};
+		};
+		class far: far
+		{
+			scope = 1;
+			burst = 6;
+			multiplier = 1;
+			reloadTime = 0.07;
+			dispersion = 0.009;
+			sounds[]=
+			{
+				"StandardSound"
+			};
+			class StandardSound: baseSoundModeType
+			{
+				soundSetShot[] = {"SPE_int_cannon_20mm_Shot_SoundSet","SPE_cannon_20mm_Tail_SoundSet"};
+			};
+		};
+		drySound[]=
+		{
+			"A3\Sounds_F\arsenal\weapons_vehicles\HMG_050\HMG050_dry.wss",
+			1,
+			1,
+			10
+		};
+		reloadMagazineSound[]=
+		{
+			"\WW2\SPE_Assets_s\Weapons\Sounds_s\sounds\specific\m2\quadReload",
+			1.3,
+			1,
+			30
+		};
+		SPE_boltSnapSound="SPE_boltSnap_int_mg151";
+		SPE_muzzlePos[]={};
+		SPE_camShakeParams[]={1.1,0.34999999,8.5};
+		class Eventhandlers: Eventhandlers
+		{
+			class SPE_m2_beltRattle
+			{
+				fired="_this params ['_unit','_weapon']; private _soundArray = ['SPE_rattle_m2_1','SPE_rattle_m2_2','SPE_rattle_m2_3','SPE_rattle_m2_4','SPE_rattle_m2_5'];[_unit,_weapon,_soundArray,3] call SPE_fnc_beltRattle;[_unit,SPE_sideChainDist_rifle,SPE_sideChainBottom_rifle,SPE_sideChainHold_rifle,SPE_sideChainEnd_rifle] call SPE_soundFunction_vehicleSidechainFired;";
+			};
+			class SPE_ReloadIndicator
+			{
+				fired = "[(_this select 0),(_this select 1),(_this select 2),(_this select 3),(_this select 4),(_this select 5),(_this select 6),(_this select 7),true] call SPE_fnc_system_reloadIndicator_fired_eh";
+				reloaded = "_this call SPE_fnc_system_reloadIndicator_reload_eh";
+			};
+			class SPE_sideChainEH
+			{
+				fired = "_this params ['_unit']; [_unit, SPE_sideChainDist_smallCannon, SPE_sideChainBottom_smallCannon, SPE_sideChainHold_smallCannon, SPE_sideChainEnd_smallCannon] call SPE_soundFunction_vehicleSidechainFired";
+			};
+		};
+		class GunParticles
+		{
+			class FirstEffect
+			{
+				effectName = "MachineGun1";
+				positionName = "usti hlavne 0";
+				directionName = "konec hlavne 0";
+			};
+			class SecondEffect
+			{
+				effectName = "MachineGun1";
+				positionName = "usti hlavne 1";
+				directionName = "konec hlavne 1";
+			};
+			class SecondEffect1
+			{
+				effectName = "MachineGun1";
+				positionName = "usti hlavne 2";
+				directionName = "konec hlavne 2";
+			};
+			class SecondEffect2
+			{
+				effectName = "MachineGun1";
+				positionName = "usti hlavne 3";
+				directionName = "konec hlavne 3";
+			};
+		};
+	};
+};
+class cfgMagazines
+{
+	class SPE_20x_SprGr_Flak_38;
+	class JPSP_80x_SprGr_Flak_38: SPE_20x_SprGr_Flak_38
+	{
+		displayNameShort = "HE";
+		count = 80;
+	};
+	class SPE_20x_PzGr_Flak_38_AP_T;
+	class JPSP_80x_PzGr_Flak_38_AP_T: SPE_20x_PzGr_Flak_38_AP_T
+	{
+		displayNameShort = "APHE";
+		count = 80;
 	};
 };
