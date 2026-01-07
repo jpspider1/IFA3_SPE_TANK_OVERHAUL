@@ -20,7 +20,7 @@ class CfgWeapons
 	class SPE_M6_L53_base;
 	class JPSP_QOF_2: SPE_M6_L53_base
 	{
-		displayName="Ordnance QF 6-pounder";
+		displayName="Ordnance QF 2-pounder";
 		displaynameshort = "QF 2-pdr";
 	};
 
@@ -30,22 +30,22 @@ class CfgWeapons
 	class SPE_M1_57mm_Base;
 	class JPSP_QOF_2_Littlejohn: SPE_M1_57mm
 	{
-		displayName="Ordnance QF 6-pounder (Littlejohn)";
+		displayName="Ordnance QF 2-pounder (Littlejohn)";
 		displaynameshort = "QF 2-pdr (Littlejohn)";
 		magazines[] = {"SPE_12x_6pdr_Mk1T_APDS","SPE_6pdr_Mk1T_APDS"};
 		magazineWell[] = {"SPE_57x441mm_M1_APDS"};
 
 		class SPE_M1_57mm_APDS_AI: SPE_M1_57mm_APDS_AI
 		{
-			displayName="Ordnance QF 6-pounder (Littlejohn)";
+			displayName="Ordnance QF 2-pounder (Littlejohn)";
 		};
 		class MODE_AI_HE: SPE_M1_57mm_HE_AI
 		{
-			displayName="Ordnance QF 6-pounder (Littlejohn)";
+			displayName="Ordnance QF 2-pounder (Littlejohn)";
 		};
 		class MODE_PLAYER_ALL: SPE_M1_57mm_Base
 		{
-			displayName="Ordnance QF 6-pounder (Littlejohn)";
+			displayName="Ordnance QF 2-pounder (Littlejohn)";
 		};
 	};
 };

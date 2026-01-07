@@ -8,6 +8,7 @@ class CfgPatches
 		requiredVersion = 1;
 		requiredAddons[] = {"FA_WW2_Armored_Cars"};
 		ammo[] = {};
+		skipWhenMissingDependencies = 1;
 	};
 };
 
@@ -495,7 +496,7 @@ class CfgVehicles
 				gunBeg = "usti hlavne";
 				gunEnd = "konec hlavne";
 				weapons[] = {"JPSP_QOF_2","FA_Besa_coax"};
-				magazines[] = {"SPE_20x_Shell_37L57_M51_APC","SPE_15x_Shell_37L57_M74_AP","SPE_30x_Shell_37L57_M63_HE","SPE_15x_Shell_37L57_M2_Canister",
+				magazines[] = {"SPE_20x_Shell_37L57_M51_APC","SPE_15x_Shell_37L57_M74_AP",
 				"LIB_225Rnd_Besa","LIB_225Rnd_Besa","LIB_225Rnd_Besa","LIB_225Rnd_Besa","LIB_225Rnd_Besa","LIB_225Rnd_Besa","LIB_225Rnd_Besa","LIB_225Rnd_Besa"};
 				memoryPointGun = "usti hlavne1";
 				selectionFireAnim = "zasleh_1";
@@ -646,6 +647,18 @@ class CfgVehicles
 				init = "(_this select 0) setVariable ['SPE_isTank',true];";
 			};
 		};
+
+		//sounds
+		audible = 6;
+		soundEngineOnExt[] = {"\JPSP_WW2_Armored_Cars_SPE_Compat\sounds\daimler\Daimler_AC_engine_start_EXT_01.ogg","db2",1.2,250};
+		soundEngineOffExt[] = {"\JPSP_WW2_Armored_Cars_SPE_Compat\sounds\daimler\Daimler_AC_engine_stop_EXT.ogg","db2",1,250};
+		soundEngineOnInt[] = {"\JPSP_WW2_Armored_Cars_SPE_Compat\sounds\daimler\Daimler_AC_engine_start_INT_01.ogg","db2",1};
+		soundEngineOffInt[] = {"\JPSP_WW2_Armored_Cars_SPE_Compat\sounds\daimler\Daimler_AC_engine_stop_INT_01.ogg","db2",1};
+		class Sounds
+		{
+			soundSetsInt[] = {"DAIMLER_Engine_RMP0_INT_SoundSet", "DAIMLER_Engine_RMP1_INT_SoundSet", "DAIMLER_Engine_RMP2_INT_SoundSet", "DAIMLER_Engine_RMP3_INT_SoundSet", "DAIMLER_Engine_RMP4_INT_SoundSet","SPE_int_vehicleStrain_truckInterior_soundSet","Van_01_Rattling_INT_SoundSet","Van_01_Stress_INT_SoundSet","SPE_truck_int_tires_rock_slow_SoundSet","SPE_truck_int_tires_rock_fast_SoundSet","SPE_truck_int_tires_grass_slow_SoundSet","SPE_truck_int_tires_grass_fast_SoundSet","SPE_truck_int_tires_sand_slow_SoundSet","SPE_truck_int_tires_sand_fast_SoundSet","SPE_truck_int_tires_gravel_slow_SoundSet","SPE_truck_int_tires_gravel_fast_SoundSet","SPE_truck_int_tires_mud_slow_SoundSet","SPE_truck_int_tires_mud_fast_SoundSet","SPE_truck_int_tires_asphalt_slow_SoundSet","SPE_truck_int_tires_asphalt_fast_SoundSet","SPE_truck_int_tires_water_slow_SoundSet","SPE_truck_int_tires_water_fast_SoundSet","Van_01_Tires_Turn_Hard_INT_SoundSet","Van_01_Tires_Turn_Soft_INT_SoundSet","Van_01_Tires_Brake_Hard_INT_SoundSet","SPE_truck_int_tires_brake_soft_soundSet","SPE_car_Int_rain_light_soundSet","SPE_car_Int_rain_hard_soundSet","SPE_truck_int_rattling_offroad_low_soundSet","SPE_truck_int_rattling_offroad_high_soundSet","SPE_truck_int_suspension_soundSet","SPE_tank_int_internalFire_soundSet"};
+			soundSetsExt[] = {"DAIMLER_Engine_RMP0_EXT_SoundSet", "DAIMLER_Engine_RMP1_EXT_SoundSet", "DAIMLER_Engine_RMP2_EXT_SoundSet", "DAIMLER_Engine_RMP3_EXT_SoundSet", "DAIMLER_Engine_RMP4_EXT_SoundSet","Van_01_Rattling_EXT_SoundSet","Van_01_Stress_EXT_SoundSet","SPE_truck_ext_tires_rock_slow_SoundSet","SPE_truck_ext_tires_rock_fast_SoundSet","SPE_truck_ext_tires_grass_slow_SoundSet","SPE_truck_ext_tires_grass_fast_SoundSet","SPE_truck_ext_tires_sand_slow_SoundSet","SPE_truck_ext_tires_sand_fast_SoundSet","SPE_truck_ext_tires_gravel_slow_SoundSet","SPE_truck_ext_tires_gravel_fast_SoundSet","SPE_truck_ext_tires_mud_slow_SoundSet","SPE_truck_ext_tires_mud_fast_SoundSet","SPE_truck_ext_tires_asphalt_slow_SoundSet","SPE_truck_ext_tires_asphalt_fast_SoundSet","SPE_truck_ext_tires_water_slow_SoundSet","SPE_truck_ext_tires_water_fast_SoundSet","Van_01_Tires_Turn_Hard_EXT_SoundSet","Van_01_Tires_Turn_Soft_EXT_SoundSet","Van_01_Tires_Brake_Hard_EXT_SoundSet","Van_01_Tires_Brake_Soft_EXT_SoundSet","SPE_car_Ext_rain_light_soundSet","SPE_car_Ext_rain_hard_soundSet","SPE_truck_ext_rattling_offroad_low_soundSet","SPE_truck_ext_rattling_offroad_high_soundSet","SPE_truck_ext_distantTires_soundSet","SPE_truck_ext_distantTires_wet_soundSet","SPE_truck_ext_tires_wetLayer_soundSet","SPE_truck_ext_suspension_soundSet","SPE_tank_ext_internalFire_soundSet"};
+		};
 	};
 
 	class JPSP_DaimlerMk2_Littlejohn_Base: FA_DaimlerMk2_Base
@@ -740,7 +753,7 @@ class CfgVehicles
 	class FA_Sdkfz231_Base: APC_Wheeled_01_base_F
 	{
 		armor=200; //down from 245 
-
+		driverOpticsModel = "\WW2\SPE_Assets_m\Vehicles\Optics_m\SPE_Generic_Periscope.p3d"; // SPE
 		//SPE hud
 		unitInfoType = "RscUnitInfoTank_SPE";
 		class SPE_Veh_HudLayers: SPE_Veh_HudLayers
@@ -1130,6 +1143,7 @@ class CfgVehicles
 							};
 						};
 						turretInfoType = "SPE_SF14_Periscope_Optic"; // SPE Panther periscope
+						turretFollowFreeLook = 0; // SPE Panther
 						showCrewAim = 1;
 						startEngine = 0;
 						class HitPoints{};
@@ -1147,10 +1161,16 @@ class CfgVehicles
 				gunBeg = "usti hlavne";
 				gunEnd = "konec hlavne";
 				weapons[] = {"JPSP_KwK_30_L55","SPE_MG34_coax"};
-				magazines[] = {"JPSP_10x_PzGr40_Flak_38_APCR_T","JPSP_10x_PzGr40_Flak_38_APCR_T","JPSP_10x_PzGr40_Flak_38_APCR_T",
-				"JPSP_10x_PzGr_Flak_38_AP_T","JPSP_10x_PzGr_Flak_38_AP_T","JPSP_10x_PzGr_Flak_38_AP_T","JPSP_10x_PzGr_Flak_38_AP_T","JPSP_10x_PzGr_Flak_38_AP_T",
-				"JPSP_10x_SprGr_Flak_38","JPSP_10x_SprGr_Flak_38","JPSP_10x_SprGr_Flak_38","JPSP_10x_SprGr_Flak_38","JPSP_10x_SprGr_Flak_38",
-				"SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34", "SPE_150rnd_MG34", "SPE_150rnd_MG34", "SPE_150rnd_MG34"};
+				/* 
+				40x APCR or 4 reloads
+				70x APHE or 7 reloads
+				70x HE or 7 reloads
+				2100 MG or 14x reloads
+				*/
+				magazines[] = {"JPSP_10x_PzGr40_Flak_38_APCR_T","JPSP_10x_PzGr40_Flak_38_APCR_T","JPSP_10x_PzGr40_Flak_38_APCR_T", "JPSP_10x_PzGr40_Flak_38_APCR_T",
+				"JPSP_10x_PzGr_Flak_38_AP_T","JPSP_10x_PzGr_Flak_38_AP_T","JPSP_10x_PzGr_Flak_38_AP_T","JPSP_10x_PzGr_Flak_38_AP_T","JPSP_10x_PzGr_Flak_38_AP_T", "JPSP_10x_PzGr_Flak_38_AP_T", "JPSP_10x_PzGr_Flak_38_AP_T",
+				"JPSP_10x_SprGr_Flak_38","JPSP_10x_SprGr_Flak_38","JPSP_10x_SprGr_Flak_38","JPSP_10x_SprGr_Flak_38","JPSP_10x_SprGr_Flak_38", "JPSP_10x_SprGr_Flak_38", "JPSP_10x_SprGr_Flak_38",
+				"SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34", "SPE_150rnd_MG34", "SPE_150rnd_MG34", "SPE_150rnd_MG34", "SPE_150rnd_MG34", "SPE_150rnd_MG34", "SPE_150rnd_MG34", "SPE_150rnd_MG34", "SPE_150rnd_MG34", "SPE_150rnd_MG34"};
 				memoryPointGun = "usti hlavne1";
 				selectionFireAnim = "zasleh_1";
 				maxHorizontalRotSpeed = 0.8;
@@ -1177,7 +1197,28 @@ class CfgVehicles
 				personTurretAction = "vehicle_turnout_1";
 				class OpticsIn
 				{
+					// SPE
 					class Wide
+					{
+						gunnerOpticsModel = "\WW2\SPE_Assets_m\Vehicles\Optics_m\SPE_Generic_Periscope.p3d";
+						initAngleX = 0;
+						initAngleY = 0;
+						initFov = 0.75;
+						maxAngleX = 30;
+						maxAngleY = 100;
+						maxFov = 0.75;
+						memoryPointGunnerOptics = "gunnerview";
+						minAngleX = -30;
+						minAngleY = -100;
+						minFov = 0.75;
+						opticsDisablePeripherialVision = 1;
+						opticsDisplayName = "PERISCOPE";
+						opticsPPEffects[] = {"TankGunnerOptics2","OpticsBlur1","OpticsCHAbera1"};
+						visionMode[] = {"Normal"};
+					};
+					// END
+					//Previously wide
+					class Near 
 					{
 						initAngleX=0;
 						minAngleX=-30;
