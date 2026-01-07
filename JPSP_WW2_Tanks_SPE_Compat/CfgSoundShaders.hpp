@@ -133,4 +133,77 @@ class CfgSoundShaders
 		volume = 1;
 		range = "6*500";
 	};
+
+
+	
+    class Valentine_Engine_RMP0_EXT_SoundShader
+	{
+		samples[] = {{"\JPSP_WW2_Tanks_SPE_Compat\Sounds\valentine\Valentine_engine_idle_ext_01.ogg",1}};
+		frequency = "0.9 * (1 + 0.8 * (((1+0.1*1 *thrust) * ((1-1 ) * (speed factor [0, 30]) + 1  * (rpm factor [700, 2700])) - 0.2*((abs(speed)) factor [2, 6]) + 0.2*((abs(speed)) factor [0, 4])*((abs(speed)) factor [0, 4]) - 0.3 * (1 - 1 *thrust)*((1-1 ) * (speed factor [0, 30]) + 1  * (rpm factor [700, 2700])) - 0.2*((abs(speed)) factor [2, 6]) + 0.2*((abs(speed)) factor [0, 4])*((abs(speed)) factor [0, 4])) + 0.5*(speed factor[0.3,0]) * ((angVelocity factor[0,0.8]) - (rpm factor [700, 2700])) - 0))";
+		volume = "engineOn * 1 * 1.5 * (rpm factor [0.06 *700, (0.06 *700 + 1.5 *(700-0.06 *700))]) * (((1+0.1*1 *thrust) * ((1-1 ) * (speed factor [0, 30]) + 1  * (rpm factor [700, 2700])) - 0.2*((abs(speed)) factor [2, 6]) + 0.2*((abs(speed)) factor [0, 4])*((abs(speed)) factor [0, 4]) - 0.3 * (1 - 1 *thrust)*((1-1 ) * (speed factor [0, 30]) + 1  * (rpm factor [700, 2700])) - 0.2*((abs(speed)) factor [2, 6]) + 0.2*((abs(speed)) factor [0, 4])*((abs(speed)) factor [0, 4])) + 0.5*(speed factor[0.3,0]) * ((angVelocity factor[0,0.8]) - (rpm factor [700, 2700])) factor [(1150 - 700)/(2500 - 700) - (((1150 - 700)/(2500 - 700) - 0) - (1.5 * ((1150 - 700)/(2500 - 700) - 0)))/2, 0])";
+		range = "6*250";
+	};
+	class Valentine_Engine_RMP1_EXT_SoundShader
+	{
+		samples[] = {{"\JPSP_WW2_Tanks_SPE_Compat\Sounds\valentine\Valentine_engine_throttle_ext_01.ogg",1}};
+		frequency = "1 * (1 + 1 * ((rpm factor [1200, 3300]) - (1800 - 1100)/(3300 - 1100)))";
+		volume = "engineOn * 1 * (((rpm factor [1200, 3300]) factor[ 0 + (((1800 - 1100)/(3300 - 1100) - 0) - (1 * (((1800 - 1100)/(3300 - 1100) - 0)))) / 2, (1800 - 1100)/(3300 - 1100) - (((1800 - 1100)/(3300 - 1100) - 0) - (1 * (((1800 - 1100)/(3300 - 1100) - 0)))) / 2]) * ((rpm factor [1200, 3300]) factor[ (2200 - 1100)/(3300 - 1100) - (((2200 - 1100)/(3300 - 1100) - (1800 - 1100)/(3300 - 1100)) - (1 * (((2200 - 1100)/(3300 - 1100) - (1800 - 1100)/(3300 - 1100))))) / 2, (1800 - 1100)/(3300 - 1100) + (((2200 - 1100)/(3300 - 1100) - (1800 - 1100)/(3300 - 1100)) - (1 * (((2200 - 1100)/(3300 - 1100) - (1800 - 1100)/(3300 - 1100))))) / 2]))";
+		range = "6*500";
+	};
+	class Valentine_Engine_RMP2_EXT_SoundShader
+	{
+		samples[] = {{"\JPSP_WW2_Tanks_SPE_Compat\Sounds\valentine\Valentine_engine_throttle_ext_01.ogg",1}};
+		frequency = "1 * (1 + 1 * ((rpm factor [1200, 3300]) - (2200 - 1100)/(3300 - 1100)))";
+		volume = "engineOn * 1 * (((rpm factor [1200, 3300]) factor[ (1800 - 1100)/(3300 - 1100) + (((2200 - 1100)/(3300 - 1100) - (1800 - 1100)/(3300 - 1100)) - (1 * (((2200 - 1100)/(3300 - 1100) - (1800 - 1100)/(3300 - 1100))))) / 2, (2200 - 1100)/(3300 - 1100) - (((2200 - 1100)/(3300 - 1100) - (1800 - 1100)/(3300 - 1100)) - (1 * (((2200 - 1100)/(3300 - 1100) - (1800 - 1100)/(3300 - 1100))))) / 2]) * ((rpm factor [1200, 3300]) factor[ (3000 - 1100)/(3300 - 1100) - (((3000 - 1100)/(3300 - 1100) - (2200 - 1100)/(3300 - 1100)) - (1 * (((3000 - 1100)/(3300 - 1100) - (2200 - 1100)/(3300 - 1100))))) / 2, (2200 - 1100)/(3300 - 1100) + (((3000 - 1100)/(3300 - 1100) - (2200 - 1100)/(3300 - 1100)) - (1 * (((3000 - 1100)/(3300 - 1100) - (2200 - 1100)/(3300 - 1100))))) / 2]))";
+		range = "6*500";
+	};
+	class Valentine_Engine_RMP3_EXT_SoundShader
+	{
+		samples[] = {{"\JPSP_WW2_Tanks_SPE_Compat\Sounds\valentine\Valentine_engine_throttle_ext_01.ogg",1}};
+		frequency = "1 * (1 + 1 * ((rpm factor [1200, 3300]) - (3000 - 1100)/(3300 - 1100)))";
+		volume = "engineOn * 1 * (((rpm factor [1200, 3300]) factor[ (2200 - 1100)/(3300 - 1100) + (((3000 - 1100)/(3300 - 1100) - (2200 - 1100)/(3300 - 1100)) - (1 * (((3000 - 1100)/(3300 - 1100) - (2200 - 1100)/(3300 - 1100))))) / 2, (3000 - 1100)/(3300 - 1100) - (((3000 - 1100)/(3300 - 1100) - (2200 - 1100)/(3300 - 1100)) - (1 * (((3000 - 1100)/(3300 - 1100) - (2200 - 1100)/(3300 - 1100))))) / 2]) * ((rpm factor [1200, 3300]) factor[ 1 - ((1 - (3000 - 1100)/(3300 - 1100)) - (1 * ((1 - (3000 - 1100)/(3300 - 1100))))) / 2, (3000 - 1100)/(3300 - 1100) + ((1 - (3000 - 1100)/(3300 - 1100)) - (1 * ((1 - (3000 - 1100)/(3300 - 1100))))) / 2]))";
+		range = "6*500";
+	};
+	class Valentine_Engine_RMP4_EXT_SoundShader
+	{
+		samples[] = {{"\JPSP_WW2_Tanks_SPE_Compat\Sounds\valentine\Valentine_engine_throttle_ext_01.ogg",1}};
+		frequency = "1 * (1 + 1 * ((rpm factor [1200, 3300]) - 1))";
+		volume = "engineOn * 1 * ((rpm factor [1200, 3300]) factor[ (3000 - 1100)/(3300 - 1100) + ((1 - (3000 - 1100)/(3300 - 1100)) - (1 * ((1 - (3000 - 1100)/(3300 - 1100))))) / 2, 1 - ((1 - (3000 - 1100)/(3300 - 1100)) - (1 * ((1 - (3000 - 1100)/(3300 - 1100))))) / 2])";
+		range = "6*500";
+	};
+	class Valentine_Engine_RMP0_INT_SoundShader
+	{
+		samples[] = {{"\JPSP_WW2_Tanks_SPE_Compat\Sounds\valentine\Valentine_engine_idle_int_01.ogg",1}};
+		frequency = "0.9 * (1 + 0.8 * (((1+0.1*1 *thrust) * ((1-1 ) * (speed factor [0, 30]) + 1  * (rpm factor [700, 2700])) - 0.2*((abs(speed)) factor [2, 6]) + 0.2*((abs(speed)) factor [0, 4])*((abs(speed)) factor [0, 4]) - 0.3 * (1 - 1 *thrust)*((1-1 ) * (speed factor [0, 30]) + 1  * (rpm factor [700, 2700])) - 0.2*((abs(speed)) factor [2, 6]) + 0.2*((abs(speed)) factor [0, 4])*((abs(speed)) factor [0, 4])) + 0.5*(speed factor[0.3,0]) * ((angVelocity factor[0,0.8]) - (rpm factor [700, 2700])) - 0))";
+		volume = "engineOn * 1 * 1.5 * (rpm factor [0.06 *700, (0.06 *700 + 1.5 *(700-0.06 *700))]) * (((1+0.1*1 *thrust) * ((1-1 ) * (speed factor [0, 30]) + 1  * (rpm factor [700, 2700])) - 0.2*((abs(speed)) factor [2, 6]) + 0.2*((abs(speed)) factor [0, 4])*((abs(speed)) factor [0, 4]) - 0.3 * (1 - 1 *thrust)*((1-1 ) * (speed factor [0, 30]) + 1  * (rpm factor [700, 2700])) - 0.2*((abs(speed)) factor [2, 6]) + 0.2*((abs(speed)) factor [0, 4])*((abs(speed)) factor [0, 4])) + 0.5*(speed factor[0.3,0]) * ((angVelocity factor[0,0.8]) - (rpm factor [700, 2700])) factor [(1150 - 700)/(2500 - 700) - (((1150 - 700)/(2500 - 700) - 0) - (1.5 * ((1150 - 700)/(2500 - 700) - 0)))/2, 0])";
+		range = "6*100";
+	};
+	class Valentine_Engine_RMP1_INT_SoundShader
+	{
+		samples[] = {{"\JPSP_WW2_Tanks_SPE_Compat\Sounds\valentine\Valentine_engine_throttle_int_01.ogg",1}};
+		frequency = "1 * (1 + 1 * ((rpm factor [1200, 3300]) - (1800 - 1100)/(3300 - 1100)))";
+		volume = "engineOn * 1 * (((rpm factor [1200, 3300]) factor[ 0 + (((1800 - 1100)/(3300 - 1100) - 0) - (1 * (((1800 - 1100)/(3300 - 1100) - 0)))) / 2, (1800 - 1100)/(3300 - 1100) - (((1800 - 1100)/(3300 - 1100) - 0) - (1 * (((1800 - 1100)/(3300 - 1100) - 0)))) / 2]) * ((rpm factor [1200, 3300]) factor[ (2200 - 1100)/(3300 - 1100) - (((2200 - 1100)/(3300 - 1100) - (1800 - 1100)/(3300 - 1100)) - (1 * (((2200 - 1100)/(3300 - 1100) - (1800 - 1100)/(3300 - 1100))))) / 2, (1800 - 1100)/(3300 - 1100) + (((2200 - 1100)/(3300 - 1100) - (1800 - 1100)/(3300 - 1100)) - (1 * (((2200 - 1100)/(3300 - 1100) - (1800 - 1100)/(3300 - 1100))))) / 2]))";
+		range = "6*100";
+	};
+	class Valentine_Engine_RMP2_INT_SoundShader
+	{
+		samples[] = {{"\JPSP_WW2_Tanks_SPE_Compat\Sounds\valentine\Valentine_engine_throttle_int_01.ogg",1}};
+		frequency = "1 * (1 + 1 * ((rpm factor [1200, 3300]) - (2200 - 1100)/(3300 - 1100)))";
+		volume = "engineOn * 1 * (((rpm factor [1200, 3300]) factor[ (1800 - 1100)/(3300 - 1100) + (((2200 - 1100)/(3300 - 1100) - (1800 - 1100)/(3300 - 1100)) - (1 * (((2200 - 1100)/(3300 - 1100) - (1800 - 1100)/(3300 - 1100))))) / 2, (2200 - 1100)/(3300 - 1100) - (((2200 - 1100)/(3300 - 1100) - (1800 - 1100)/(3300 - 1100)) - (1 * (((2200 - 1100)/(3300 - 1100) - (1800 - 1100)/(3300 - 1100))))) / 2]) * ((rpm factor [1200, 3300]) factor[ (3000 - 1100)/(3300 - 1100) - (((3000 - 1100)/(3300 - 1100) - (2200 - 1100)/(3300 - 1100)) - (1 * (((3000 - 1100)/(3300 - 1100) - (2200 - 1100)/(3300 - 1100))))) / 2, (2200 - 1100)/(3300 - 1100) + (((3000 - 1100)/(3300 - 1100) - (2200 - 1100)/(3300 - 1100)) - (1 * (((3000 - 1100)/(3300 - 1100) - (2200 - 1100)/(3300 - 1100))))) / 2]))";
+		range = "6*100";
+	};
+	class Valentine_Engine_RMP3_INT_SoundShader
+	{
+		samples[] = {{"\JPSP_WW2_Tanks_SPE_Compat\Sounds\valentine\Valentine_engine_throttle_int_01.ogg",1}};
+		frequency = "1 * (1 + 1 * ((rpm factor [1200, 3300]) - (3000 - 1100)/(3300 - 1100)))";
+		volume = "engineOn * 1 * (((rpm factor [1200, 3300]) factor[ (2200 - 1100)/(3300 - 1100) + (((3000 - 1100)/(3300 - 1100) - (2200 - 1100)/(3300 - 1100)) - (1 * (((3000 - 1100)/(3300 - 1100) - (2200 - 1100)/(3300 - 1100))))) / 2, (3000 - 1100)/(3300 - 1100) - (((3000 - 1100)/(3300 - 1100) - (2200 - 1100)/(3300 - 1100)) - (1 * (((3000 - 1100)/(3300 - 1100) - (2200 - 1100)/(3300 - 1100))))) / 2]) * ((rpm factor [1200, 3300]) factor[ 1 - ((1 - (3000 - 1100)/(3300 - 1100)) - (1 * ((1 - (3000 - 1100)/(3300 - 1100))))) / 2, (3000 - 1100)/(3300 - 1100) + ((1 - (3000 - 1100)/(3300 - 1100)) - (1 * ((1 - (3000 - 1100)/(3300 - 1100))))) / 2]))";
+		range = "6*100";
+	};
+	class Valentine_Engine_RMP4_INT_SoundShader
+	{
+		samples[] = {{"\JPSP_WW2_Tanks_SPE_Compat\Sounds\valentine\Valentine_engine_throttle_int_01.ogg",1}};
+		frequency = "1 * (1 + 1 * ((rpm factor [1200, 3300]) - 1))";
+		volume = "engineOn * 1 * ((rpm factor [1200, 3300]) factor[ (3000 - 1100)/(3300 - 1100) + ((1 - (3000 - 1100)/(3300 - 1100)) - (1 * ((1 - (3000 - 1100)/(3300 - 1100))))) / 2, 1 - ((1 - (3000 - 1100)/(3300 - 1100)) - (1 * ((1 - (3000 - 1100)/(3300 - 1100))))) / 2])";
+		range = "6*100";
+	};
 };
