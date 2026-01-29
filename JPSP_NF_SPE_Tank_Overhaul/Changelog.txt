@@ -1,0 +1,26 @@
+v1.0 Initial release of JPSP NF SPE Tank Overhaul
+------------------------------------------------------------------------------------------------------------------------------------------------------
+- Focus is on making SPE German tank versus late war soviet tanks in NF playable and feel 'realistic' against eachother
+- Hopefully this will become deprecated once the NF devs have time to modernize their vehicles against SPE damage models or make a separate version
+------------------------------------------------------------------------------------------------------------------------------------------------------
+General
+- Early war T-34/76 and KV1s with F32/F34 guns should play similar to SPE M4 Shermans in offensive firepower
+- KV-1 with 76mm ZiS-5 should play similar to SPE M4(76) Shermans in offensive firepower
+- T-34/85 should play similar to M10 Tankdestroyer in offensive firepower
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+T-34/76 Obr. 1941
+- Main weapon changed to a renamed SPE M3 L40 gun
+
+T-34/76 Obr. 1943
+- Main weapon changed to a renamed SPE M3 L40 gun
+
+T-34/85 Obr. 1944
+- Main weapon changed to a renamed SPE M7 76mm L55
+
+T-34/85 Obr. 1945 (Caged)
+- Main weapon changed to a renamed SPE M7 76mm L55
+
+T-70M Obr. 1942
+- Main weapon changed to a renamed SPE M6 L53 gun (37mm gun on M8)
