@@ -799,11 +799,17 @@ class CfgVehicles
 				gunBeg = "usti hlavne";
 				gunEnd = "konec hlavne";
 				weapons[] = {"JPSP_KwK_30_L55","SPE_MG34_coax"};
+
+				// 2026-08-22 In reality the ratio percentages of just APCR / APHE = 7.5% or APCR / (APHE + HE) = 3.2% support to only give them 1 magazine of 2cm APCR
+				// In practice it would be too cruel to give the tankers no possibility to defend themselves
+				// https://www.lexikon-der-wehrmacht.de/Waffen/panzer2.htm
+				// https://panzerworld.com/german-apcr-ammunition
+
 				magazines[] = {
 					"JPSP_10x_PzGr40_Flak_38_APCR_T","JPSP_10x_PzGr40_Flak_38_APCR_T",
-					"JPSP_10x_PzGr_Flak_38_AP_T","JPSP_10x_PzGr_Flak_38_AP_T","JPSP_10x_PzGr_Flak_38_AP_T","JPSP_10x_PzGr_Flak_38_AP_T","JPSP_10x_PzGr_Flak_38_AP_T","JPSP_10x_PzGr_Flak_38_AP_T",
-					"JPSP_10x_SprGr_Flak_38","JPSP_10x_SprGr_Flak_38","JPSP_10x_SprGr_Flak_38","JPSP_10x_SprGr_Flak_38","JPSP_10x_SprGr_Flak_38",
-					"SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34"};
+					"JPSP_10x_PzGr_Flak_38_AP_T","JPSP_10x_PzGr_Flak_38_AP_T","JPSP_10x_PzGr_Flak_38_AP_T","JPSP_10x_PzGr_Flak_38_AP_T","JPSP_10x_PzGr_Flak_38_AP_T","JPSP_10x_PzGr_Flak_38_AP_T","JPSP_10x_PzGr_Flak_38_AP_T","JPSP_10x_PzGr_Flak_38_AP_T",
+					"JPSP_10x_SprGr_Flak_38","JPSP_10x_SprGr_Flak_38","JPSP_10x_SprGr_Flak_38","JPSP_10x_SprGr_Flak_38","JPSP_10x_SprGr_Flak_38","JPSP_10x_SprGr_Flak_38","JPSP_10x_SprGr_Flak_38","JPSP_10x_SprGr_Flak_38",
+					"SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34"};
 				memoryPointGun = "usti hlavne1";
 				selectionFireAnim = "zasleh1";
 				maxHorizontalRotSpeed = 0.75;
