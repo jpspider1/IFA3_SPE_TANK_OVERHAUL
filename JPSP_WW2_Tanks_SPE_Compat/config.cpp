@@ -47,6 +47,23 @@ class CfgVehicles
 		{
 			class ViewGunner: ViewCargo{};
 		};
+
+		//SPE
+		class SPE_Veh_HudLayers
+  		{
+    		class Vehicle
+    		{
+      			class SPE_Veh_HudLayers
+      			{
+					class ltrack;
+					class rtrack;
+					class hull;
+					class engine;
+					class turret;
+					class gun;
+				};
+			};
+  		};
 	};
 	class Land: AllVehicles{};
 	class LandVehicle: Land
@@ -607,6 +624,24 @@ class CfgVehicles
 
 	class FA_Panzer2_Base: Tank_F
 	{
+
+		//SPE
+		class SPE_Veh_HudLayers: SPE_Veh_HudLayers
+		{
+			class Vehicle: Vehicle
+			{
+				class SPE_Veh_HudLayers: SPE_Veh_HudLayers
+				{
+					class hull: hull {};
+					class engine: engine {};
+					class ltrack: ltrack {};
+					class rtrack: rtrack {};
+					class turret: turret {};
+					class gun: gun {};
+				};
+			};
+		};
+
 		armor = 100; //250 original
 		armorStructural = 50; //1
 		driverOpticsModel = "\WW2\SPE_Assets_m\Vehicles\Optics_m\SPE_Generic_Periscope.p3d"; // SPE
@@ -1372,6 +1407,46 @@ class CfgVehicles
 				forceAnimate[] = {"hide_decal_number",0,"hide_decal_number_7",0,"hide_decal_number_20",0,"hide_decal_number_72",0};
 			};
 		};
+	};
+
+	class FA_Panzer2: FA_Panzer2_BASE
+	{
+		//SPE hud
+		unitInfoType = "RscUnitInfoTank_SPE";
+		class SPE_Veh_HudLayers: SPE_Veh_HudLayers
+        {
+            class Vehicle: Vehicle
+            {
+                SPE_Layers_Array[] = {"engine","gun","hull","ltrack","rtrack","turret"};
+                class SPE_Veh_HudLayers: SPE_Veh_HudLayers
+                {
+                    class engine: engine
+                    {
+						Text = "\WW2\SPE_Core_t\Data_t\Extended_HUD\Tanks\PzKpfwIV_G\Engine.paa";
+                    };
+                    class gun: gun
+                    {
+						Text = "\WW2\SPE_Core_t\Data_t\Extended_HUD\Tanks\PzKpfwIV_G\Gun.paa";
+                    };
+                    class hull: hull
+                    {
+						Text = "\WW2\SPE_Core_t\Data_t\Extended_HUD\Tanks\PzKpfwIV_G\Engine.paa";
+                    };
+                    class ltrack: ltrack
+                    {
+						Text = "\WW2\SPE_Core_t\Data_t\Extended_HUD\Tanks\PzKpfwIV_G\LTrack.paa";
+                    };
+                    class rtrack: rtrack
+                    {
+						Text = "\WW2\SPE_Core_t\Data_t\Extended_HUD\Tanks\PzKpfwIV_G\RTrack.paa";
+                    };
+                    class turret: turret
+                    {
+						Text = "\WW2\SPE_Core_t\Data_t\Extended_HUD\Tanks\PzKpfwIV_G\Turret.paa";
+                    };
+                };
+            };
+        };
 	};
 
 	class JPSP_Panzer2F: JPSP_Panzer2F_Base
