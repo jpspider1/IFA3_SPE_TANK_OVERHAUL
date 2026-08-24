@@ -812,8 +812,8 @@ class CfgVehicles
 					"SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34","SPE_150rnd_MG34"};
 				memoryPointGun = "usti hlavne1";
 				selectionFireAnim = "zasleh1";
-				maxHorizontalRotSpeed = 0.75;
-				maxVerticalRotSpeed = 0.65;
+				maxHorizontalRotSpeed = "((16 / 180) * 3.14159265)"; 
+				maxVerticalRotSpeed = "((20 / 180) * 3.14159265)";
 				//soundServo[] = {"\WW2\Assets_s\Vehicles\Tanks_s\PzKpfwVI_E\PzKpfwVI_E_Servo.wss",1.25,1,25};
 				//soundServoVertical[] = {"\WW2\Assets_s\Vehicles\Tanks_s\PzKpfwVI_E\PzKpfwVI_E_Servo.wss",1.25,1,25};
 				forceHideGunner = 0;
@@ -881,9 +881,9 @@ class CfgVehicles
 						initAngleY = 0;
 						minAngleY = -100;
 						maxAngleY = 100;
-						initFov = 0.2;
-						minFov = 0.2;
-						maxFov = 0.2;
+						initFov = 0.1;
+						minFov = 0.1;
+						maxFov = 0.1;
 						memoryPointGunnerOptics = "gunnerview";
 						visionMode[] = {"Normal"};
 						opticsFlare = 1;
