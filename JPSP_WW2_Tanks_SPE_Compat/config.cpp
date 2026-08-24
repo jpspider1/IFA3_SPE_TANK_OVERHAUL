@@ -1451,6 +1451,43 @@ class CfgVehicles
 
 	class JPSP_Panzer2F: JPSP_Panzer2F_Base
 	{
+		//SPE hud
+		unitInfoType = "RscUnitInfoTank_SPE";
+		class SPE_Veh_HudLayers: SPE_Veh_HudLayers
+        {
+            class Vehicle: Vehicle
+            {
+                SPE_Layers_Array[] = {"engine","gun","hull","ltrack","rtrack","turret"};
+                class SPE_Veh_HudLayers: SPE_Veh_HudLayers
+                {
+                    class engine: engine
+                    {
+						Text = "\WW2\SPE_Core_t\Data_t\Extended_HUD\Tanks\PzKpfwIV_G\Engine.paa";
+                    };
+                    class gun: gun
+                    {
+						Text = "\WW2\SPE_Core_t\Data_t\Extended_HUD\Tanks\PzKpfwIV_G\Gun.paa";
+                    };
+                    class hull: hull
+                    {
+						Text = "\WW2\SPE_Core_t\Data_t\Extended_HUD\Tanks\PzKpfwIV_G\Engine.paa";
+                    };
+                    class ltrack: ltrack
+                    {
+						Text = "\WW2\SPE_Core_t\Data_t\Extended_HUD\Tanks\PzKpfwIV_G\LTrack.paa";
+                    };
+                    class rtrack: rtrack
+                    {
+						Text = "\WW2\SPE_Core_t\Data_t\Extended_HUD\Tanks\PzKpfwIV_G\RTrack.paa";
+                    };
+                    class turret: turret
+                    {
+						Text = "\WW2\SPE_Core_t\Data_t\Extended_HUD\Tanks\PzKpfwIV_G\Turret.paa";
+                    };
+                };
+            };
+        };
+
 		scope = 2;
 		scopeCurator = 2;
 		author = "Jpspider";
@@ -1460,6 +1497,44 @@ class CfgVehicles
 	};
 	class JPSP_Panzer2F_DAK: JPSP_Panzer2F
 	{
+
+		//SPE hud
+		unitInfoType = "RscUnitInfoTank_SPE";
+		class SPE_Veh_HudLayers: SPE_Veh_HudLayers
+        {
+            class Vehicle: Vehicle
+            {
+                SPE_Layers_Array[] = {"engine","gun","hull","ltrack","rtrack","turret"};
+                class SPE_Veh_HudLayers: SPE_Veh_HudLayers
+                {
+                    class engine: engine
+                    {
+						Text = "\WW2\SPE_Core_t\Data_t\Extended_HUD\Tanks\PzKpfwIV_G\Engine.paa";
+                    };
+                    class gun: gun
+                    {
+						Text = "\WW2\SPE_Core_t\Data_t\Extended_HUD\Tanks\PzKpfwIV_G\Gun.paa";
+                    };
+                    class hull: hull
+                    {
+						Text = "\WW2\SPE_Core_t\Data_t\Extended_HUD\Tanks\PzKpfwIV_G\Engine.paa";
+                    };
+                    class ltrack: ltrack
+                    {
+						Text = "\WW2\SPE_Core_t\Data_t\Extended_HUD\Tanks\PzKpfwIV_G\LTrack.paa";
+                    };
+                    class rtrack: rtrack
+                    {
+						Text = "\WW2\SPE_Core_t\Data_t\Extended_HUD\Tanks\PzKpfwIV_G\RTrack.paa";
+                    };
+                    class turret: turret
+                    {
+						Text = "\WW2\SPE_Core_t\Data_t\Extended_HUD\Tanks\PzKpfwIV_G\Turret.paa";
+                    };
+                };
+            };
+        };
+
 		author = "Jpspider";
 		faction = "LIB_DAK";
 		editorPreview = "\FA_WW2_Tanks\ui\previews\pre_pz2_dak_ca.jpg";
