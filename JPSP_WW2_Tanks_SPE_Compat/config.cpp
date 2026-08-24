@@ -686,7 +686,7 @@ class CfgVehicles
 				radius = 0.2;
 				armor = -650;
 				minimalHit = 0.0738462;
-				explosionShielding = 0.8;
+				explosionShielding = 3; //0.8
 				passThrough = 0;
 			};
 			class HitRTrack: HitRTrack
@@ -698,7 +698,7 @@ class CfgVehicles
 				radius = 0.2;
 				armor = -650;
 				minimalHit = 0.0738462;
-				explosionShielding = 0.8;
+				explosionShielding = 3; //0.8
 				passThrough = 0;
 			};
 		};
@@ -1820,7 +1820,7 @@ class CfgVehicles
 				radius = 0.2;
 				armor = -650;
 				minimalHit = 0.0738462;
-				explosionShielding = 0.8;
+				explosionShielding = 3; //0.8
 				passThrough = 0;
 			};
 			class HitRTrack: HitRTrack
@@ -1832,7 +1832,7 @@ class CfgVehicles
 				radius = 0.2;
 				armor = -650;
 				minimalHit = 0.0738462;
-				explosionShielding = 0.8;
+				explosionShielding = 3; //0.8
 				passThrough = 0;
 			};
 		};
