@@ -19,8 +19,6 @@ class CfgAmmo
 	class SPE_PzGr_Flak_38_AP_T;
 	class JPSP_PzGr_Flak_38_AP_T: SPE_PzGr_Flak_38_AP_T
 	{
-		hit = 60; //120
-		MACRO_CALIBER(20,800) //34, 800
 		model = "\A3\Weapons_f\Data\bullettracer\tracer_yellow.p3d";
 		typicalSpeed = 800;
 
@@ -34,7 +32,7 @@ class CfgAmmo
 	};
 	class JPSP_PzGr40_Flak_38_APCR_T: JPSP_PzGr_Flak_38_AP_T
 	{
-		MACRO_CALIBER(30,1050) //45, 1050
+		MACRO_CALIBER(45,1050) //45, 1050
 		typicalSpeed = 1050;
 	};
 
