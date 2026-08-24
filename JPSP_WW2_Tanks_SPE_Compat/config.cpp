@@ -642,8 +642,8 @@ class CfgVehicles
 			};
 		};
 
-		armor = 100; //250 original
-		armorStructural = 50; //1
+		armor = 450; //250 original - 100 was in config making it match SPE Panzer IVG
+		armorStructural = 50; //1 - 50 is accurate to SPE Panzer IVG
 		driverOpticsModel = "\WW2\SPE_Assets_m\Vehicles\Optics_m\SPE_Generic_Periscope.p3d"; // SPE
 		//sounds
 		soundEngineOnExt[] = {"\JPSP_WW2_Tanks_SPE_Compat\Sounds\Panzer_II_engine_start_EXT_01.ogg","db2",1.2,250};
@@ -659,6 +659,13 @@ class CfgVehicles
 		{
 			class HitHull: HitHull
 			{
+				//SPE Panzer IV G
+				armor = -190;
+				explosionShielding = 0.35;
+				minimalHit = 0.14;
+				passThrough = 10;
+				radius = 0.15;
+				//END SPE Panzer IV G
 				name = "hull";
 				visual = "hull";
 			};
@@ -690,27 +697,27 @@ class CfgVehicles
 						type = "Fire";
 					};
 				};
-				armor = -200; //0.6
+				armor = 0.4; //0.6 - -200
 				material = -1;
 				armorComponent = "engine";
 				name = "engine";
 				visual = "-";
-				passThrough = 0.2;
-				minimalHit = 0.2;
-				explosionShielding = 0.2;
-				radius = 0.3;
+				passThrough = 1; //0.2
+				minimalHit = 0.14; //0.2
+				explosionShielding = 0.4; //0.2
+				radius = 0.19; //0.3
 			};
 			class HitFuel: HitFuel
 			{
-				armor = -200; //0.5
+				armor = 0.4; //0.5 - -200
 				material = -1;
 				armorComponent = "palivo";
 				name = "palivo";
 				visual = "-";
-				passThrough = 0.1;
-				minimalHit = 0.1;
+				passThrough = 0.5; //0.1
+				minimalHit = 0.14; //0.1
 				explosionShielding = 0.6;
-				radius = 0.3;
+				radius = 0.19; //0.3
 			};
 			class HitLTrack: HitLTrack
 			{
@@ -718,9 +725,9 @@ class CfgVehicles
 				armorComponent = "pas_L";
 				name = "pas_L";
 				visual = "pas_L";
-				radius = 0.2;
-				armor = -650;
-				minimalHit = 0.0738462;
+				radius = 0.15; //0.2
+				armor = 1; //-650
+				minimalHit = 0.07; //0.0738462
 				explosionShielding = 3; //0.8
 				passThrough = 0;
 			};
@@ -730,9 +737,9 @@ class CfgVehicles
 				armorComponent = "pas_P";
 				name = "pas_P";
 				visual = "pas_P";
-				radius = 0.2;
-				armor = -650;
-				minimalHit = 0.0738462;
+				radius = 0.15; //0.2
+				armor = 1; //-650
+				minimalHit = 0.07; //0.0738462
 				explosionShielding = 3; //0.8
 				passThrough = 0;
 			};
@@ -957,25 +964,25 @@ class CfgVehicles
 				{
 					class HitTurret
 					{
-						armor = 2;
+						armor = 0.4; //2
 						material = -1;
 						name = "vez";
 						visual = "vez";
 						passThrough = 0;
-						minimalHit = 0.02;
-						explosionShielding = 0.3;
-						radius = 0.25;
+						minimalHit = -0.21; //0.02
+						explosionShielding = 0.4; //0.3
+						radius = 0.18; //0.25
 					};
 					class HitGun
 					{
-						armor = 1;
+						armor = 0.8; //1
 						material = -1;
 						name = "zbran";
 						visual = "";
 						passThrough = 0;
-						minimalHit = 0;
-						explosionShielding = 1;
-						radius = 0.25;
+						minimalHit = -0.04; //0
+						explosionShielding = 0.2; //1
+						radius = 0.18; //0.25
 					};
 				};
 			};
@@ -1430,7 +1437,7 @@ class CfgVehicles
                     };
                     class hull: hull
                     {
-						Text = "\WW2\SPE_Core_t\Data_t\Extended_HUD\Tanks\PzKpfwIV_G\Engine.paa";
+						Text = "\WW2\SPE_Core_t\Data_t\Extended_HUD\Tanks\PzKpfwIV_G\Hull.paa";
                     };
                     class ltrack: ltrack
                     {
@@ -1470,7 +1477,7 @@ class CfgVehicles
                     };
                     class hull: hull
                     {
-						Text = "\WW2\SPE_Core_t\Data_t\Extended_HUD\Tanks\PzKpfwIV_G\Engine.paa";
+						Text = "\WW2\SPE_Core_t\Data_t\Extended_HUD\Tanks\PzKpfwIV_G\Hull.paa";
                     };
                     class ltrack: ltrack
                     {
@@ -1517,7 +1524,7 @@ class CfgVehicles
                     };
                     class hull: hull
                     {
-						Text = "\WW2\SPE_Core_t\Data_t\Extended_HUD\Tanks\PzKpfwIV_G\Engine.paa";
+						Text = "\WW2\SPE_Core_t\Data_t\Extended_HUD\Tanks\PzKpfwIV_G\Hull.paa";
                     };
                     class ltrack: ltrack
                     {
